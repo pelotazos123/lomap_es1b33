@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "gh-pages": "^3.2.3",
+    "reapop": "^4.2.1",
     "shx": "^0.3.4"
   }
 }
