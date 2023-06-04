@@ -9,6 +9,9 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: webapp
     steps:
     - uses: actions/checkout@v3
       with:
