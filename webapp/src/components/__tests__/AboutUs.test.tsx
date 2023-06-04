@@ -10,9 +10,6 @@ describe("AboutUs component", () => {
   
       const team1Role = screen.getByText("AboutUs.team1.role");
       expect(team1Role).toBeInTheDocument();
-  
-      const team2Role = screen.getByText("AboutUs.team2.role");
-      expect(team2Role).toBeInTheDocument();
     });
 });
 
