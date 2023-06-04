@@ -6,7 +6,7 @@
 |===
 |*Constraint*|*Explanation*
 |*SOLID*| SOLID pods will be used to store the data.
-|Docker| The application is to be deployed using docker.
+|*Docker*| The application is to be deployed using docker.
 |*GitHub*|GitHub will be used as a git host. Through this, we will manage version control, 
 communication, actions and the project itself.
 |===
@@ -40,7 +40,7 @@ it will be agreed byboth of us and recorded in the activity. Those minutes will 
 |*Clean code*| The code must be clean and well written to keep it easier to work with and mantain.
 |*Accessibility*| The interface must be easy to understand and to navigate through for every possible non-technical user.
 |*SOLID*| The code must follow the Solid project conventions.
-|Language| We will try that the most part of the official contribution to the project is done in english so it is the most global possible.
+|*Language*| We will try that the most part of the official contribution to the project is done in english so it is the most global possible.
 |===
 
 [role="arc42help"]

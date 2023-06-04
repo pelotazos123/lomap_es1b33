@@ -15,7 +15,7 @@ We are using the following technologies for the development of the application:
 === Decisions on how to achieve key quality goals
 
 |===
-|Quality goal|Approach
+|*Quality goal*|*Approach*
 |Security and Privacy| SOLID pods will be used to store the user data securely in a decentralized way.
 |Responsiveness|React will be used for achieving a responsiveness web application.
 |Maintanability|The code will be clean, avoiding bad smells.
