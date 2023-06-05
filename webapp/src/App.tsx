@@ -14,6 +14,7 @@ import { MarkerContext, Types } from './context/MarkerContextProvider';
 import AboutUs from './components/AboutUs';
 import NotificationsSystem, { atalhoTheme, setUpNotifications, useNotifications } from "reapop";
 import i18n from './localize/i18n';
+import UserStats from './components/UserStats';
 
 setUpNotifications({
   defaultProps: {
@@ -73,6 +74,9 @@ function App(): JSX.Element {
             } />
             <Route path="/aboutus" element={
               <AboutUs />
+            } />
+            <Route path="/userstats" element={
+              <UserStats />
             } />
           </Routes>
           <NotificationsSystem

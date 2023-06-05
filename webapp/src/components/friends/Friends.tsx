@@ -23,7 +23,7 @@ const FriendsList = (props: FriendProps) => {
   const { t } = useTranslation("translation");
 
   useEffect(() => {
-    loadData();
+    loadData()
   }, [showAddFriendForm]);
 
   /**

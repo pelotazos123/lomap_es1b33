@@ -3,7 +3,6 @@ import React, { MutableRefObject, useState } from 'react';
 import { useSession } from '@inrupt/solid-ui-react';
 import { IPMarker } from "../../../shared/SharedTypes";
 import { Slide, Stack, TextField, Select, MenuItem } from '@mui/material';
-import { PowerInputSharp } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 
 interface INewUbicationFormProps {
@@ -105,7 +104,7 @@ const NewUbicationForm: React.FC<INewUbicationFormProps> = (props) => {
             />
             <Select
               value={props.globalCategory}
-              onChange={(e) => props.setGlobalCategory(e.target.value as string)}
+              onChange={(e) => props.setGlobalCategory(e.target.value)}
               sx={{ my: 2, bgcolor: 'white' }}
             >
               <MenuItem value={'Museos'}>{t("NewUbication.museos")}</MenuItem>

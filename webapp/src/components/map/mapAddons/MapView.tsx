@@ -127,6 +127,7 @@ const MapView = () => {
                         setGlobalMode(e.target.value)
                         changeFriendsMap(e.target.value);
                     }}
+                    data-testid='mapview-sel'
                     sx={{ width: '15em', height: '3em', bgcolor: 'white', margin: '1em', marginLeft: '2%' }}
                 >
                     {menuOptions?.map(({value, txt}) => (

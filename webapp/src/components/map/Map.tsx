@@ -75,12 +75,6 @@ const LoMap: React.FC<IMapProps> = (props) => {
             if (!map) {
                 defaultMapStart();           // Si el mapa no está iniciado, lo inicia
             } else {
-                google.maps.event.addListenerOnce(map, 'idle', function(){
-                    // do something only the first time the map is loaded
-                  setLoaded(true);
-                    
-                });
-
                 if (session.info.isLoggedIn) {
                     addInitMarker();                // Añade un marcador para evitar problemas con los Spinner del formulario
                     initEventListener();            // Inicia el listener encargado de escuchar clicks en el mapa
@@ -189,13 +183,9 @@ const LoMap: React.FC<IMapProps> = (props) => {
          * @returns ICouple par(marcador, ventana de información) 
          */
         const generateMarker = (notAddedMarker: IMarker, id: string): ICouple => {
-            const icon = {
-                url: "marker.png",
-                scaledSize: new google.maps.Size(35,35),
-            }
             const marker: GoogleMarker = new google.maps.Marker({
                 position: notAddedMarker.latLng,                             // Posición del marcador
-                icon: icon,                                     // Icono del marcador
+                icon: "marker.png",                                     // Icono del marcador
                 map: map                                                     // Referencia al mapa
             });
 
@@ -233,12 +223,8 @@ const LoMap: React.FC<IMapProps> = (props) => {
          * @param location coordenadas del marcador
          */
         const addHomeMarker = (location: GoogleLatLng): void => {
-            const icon = {
-                url: "home.png",
-                scaledSize: new google.maps.Size(45,45),
-            }
             const homeMarkerConst: GoogleMarker = new google.maps.Marker({ // Mismo proceso que en generateMarker()
-                icon: icon,
+                icon: "home.png",
                 position: location,
                 map: map
             });

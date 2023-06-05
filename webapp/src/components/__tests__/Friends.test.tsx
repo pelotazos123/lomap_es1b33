@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import FriendsList from '../friends/Friends';
-import AddFriendForm from '../friends/AddFriendForm';
 
 // mock the SolidHelper functions used in the component
 jest.mock('../../helpers/SolidHelper', () => ({

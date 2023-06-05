@@ -20,13 +20,13 @@ interface DetailedUbicationViewProps {
 
 const DetailedUbicationView: React.FC<DetailedUbicationViewProps> = (props) => {
   const { session } = useSession();
-  const [rating, setRating] = useState<number>(props.rating === undefined ? 0 : props.rating);
+  const [rating, setRating] = useState<number>(props.rating ?? 0);
   const [comment, setComment] = useState<Comment>();
   const [text, setText] = useState<string>('');
   const { state: markers, dispatch } = useContext(MarkerContext);
   const [isRatingOpen, setRatingOpen] = useState<boolean>(false);
   const [urlImage, setUrlImage] = useState<string>();
-  const [author, setAuthor] = useState(session.info.webId?.substring(8).split('.')[0]!)
+  const [author] = useState(session.info.webId?.substring(8).split('.')[0]!)
   let arrayRandom = new Uint32Array(100);
 
   const { t } = useTranslation("translation");

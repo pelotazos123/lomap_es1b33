@@ -6,6 +6,7 @@ import { useSession, LogoutButton } from '@inrupt/solid-ui-react';
 import { useTranslation } from 'react-i18next';
 import { PersonData, findPersonData } from '../helpers/SolidHelper';
 import i18n from 'i18next';
+import UserStats from './UserStats';
 
 type propsNav = {
     lang: string;
@@ -116,10 +117,13 @@ export const NavBar: React.FC<propsNav> = (props) => {
                         spacing={{ xs: 1, sm: 2, md: 2 } }
                         margin="1em">
 
+                            <Link to="/userstats">
+                                <img src="stats.png" alt="accountStats"/>
+                            </Link>
                             <Box component="p" color={'white'}>
                                 {personData?.name}
                             </Box>
-                            <a href={personData?.photo} target="_blank" rel="noopener noreferrer">
+                            <a href={personData?.webId} target="_blank" rel="noopener noreferrer">
                                 <img src={getImg()} alt="" className="profile-pic" />
                             </a>
                             <LogoutButton>
