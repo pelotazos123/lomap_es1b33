@@ -3,4 +3,4 @@ services:
   webapp:
     image: ghcr.io/pelotazos123/lomap_es1b33/webapp:latest
     ports:
-      - "3000:3000"
+      - "443:443"
