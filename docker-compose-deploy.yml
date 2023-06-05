@@ -2,5 +2,6 @@ version: '3.5'
 services:
   webapp:
     image: ghcr.io/pelotazos123/lomap_es1b33/webapp:latest
+    command: "npm run prod"
     ports:
       - "443:443"
