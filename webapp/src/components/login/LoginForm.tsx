@@ -52,7 +52,7 @@ function LoginForm(props: LoginProps): JSX.Element {
                 role="txtRole"
                 type="url"
                 value={oidcIssuer}
-                onChange={e => setOidcIssuer(e.target.value as string)}
+                onChange={e => setOidcIssuer(e.target.value)}
                 sx={{ width: '15em', margin: '0.5em' }}
                 disabled={disabled}
               />
