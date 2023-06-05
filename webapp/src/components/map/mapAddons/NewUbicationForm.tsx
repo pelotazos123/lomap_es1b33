@@ -1,5 +1,5 @@
 import Button from '@mui/material/Button';
-import React, { MutableRefObject, useState } from 'react';
+import React, { MutableRefObject } from 'react';
 import { useSession } from '@inrupt/solid-ui-react';
 import { IPMarker } from "../../../shared/SharedTypes";
 import { Slide, Stack, TextField, Select, MenuItem } from '@mui/material';
