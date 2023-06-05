@@ -8,7 +8,7 @@ ___
 <h1><div align="center">
     <img src="https://github.com/pelotazos123/lomap_es1b33/blob/develop/docs/images/logo-no-background.png" alt="LO MAP" width="300" height="200" align="center">
 </div></h1>
-<a href="https://arquisoft.github.io/lomap_es1b33/"><strong>Project documentation »</strong></a>
+<a href="https://pelotazos123.github.io/lomap_es1b33/"><strong>Project documentation »</strong></a>
 
 ___
 
