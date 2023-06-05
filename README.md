@@ -1,5 +1,5 @@
 
-[![CI for LOMAP ES1B](https://github.com/pelotazos123/lomap_es1b33/actions/workflows/lomap_es1b33.yml/badge.svg)](https://github.com/pelotazos123/lomap_es1b33/actions/workflows/lomap_es1b33.yml)
+[![CI for LOMAP ES1B](https://github.com/pelotazos123/lomap_es1b33/actions/workflows/lomap_es1b33-production.yml/badge.svg)](https://github.com/pelotazos123/lomap_es1b33/actions/workflows/lomap_es1b33-production.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pelotazos123_lomap_es1b33&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=pelotazos123_lomap_es1b33)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=pelotazos123_lomap_es1b33&metric=coverage)](https://sonarcloud.io/summary/new_code?id=pelotazos123_lomap_es1b33)
 
