@@ -1,8 +1,6 @@
-import { fireEvent, getByRole, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { IPMarker } from '../../shared/SharedTypes';
 import DetailedUbicationView from '../map/mapAddons/DetailedInfoWindow';
-import { MarkerContext, MarkerContextProvider } from '../../context/MarkerContextProvider';
-import { initialState } from 'rdf-namespaces/dist/wf';
 //jest.mock('../../../helpers/SolidHelper');
 
 const mockMarkerShown: IPMarker = {

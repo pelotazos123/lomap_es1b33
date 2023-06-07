@@ -20,11 +20,17 @@ import {
     ToggleButton,
     ToggleButtonGroup,
 } from '@mui/material';
-import { notify } from 'reapop';
 import { useTranslation } from 'react-i18next';
 import LoMap from '../Map';
 
-const MapView = () => {
+interface MapviewProps{
+    showLocationAddedNoti?: () => void;
+    showLocationDeletedNoti?: () => void;
+    showLevelUpNoti?: () => void;
+    showExperienceNoti?: () => void;
+}
+
+const MapView: React.FC<MapviewProps> = ({showLocationAddedNoti, showLocationDeletedNoti, showLevelUpNoti, showExperienceNoti}) => {
     const { session } = useSession();
     const nextID = useRef<string>(uuid());
     const [globalLat, setGlobalLat] = useState<number>(0);
@@ -76,14 +82,6 @@ const MapView = () => {
     ) => {
         setGlobalFilterCategories(newCategories);
     };
-
-    const showLocationAdded = () => {
-        notify(t("Notifications.okUbiAdd"), "success");
-    }
-
-    const showLocationDeleted = () => {
-        notify(t("Notifications.okUbi"), "success");
-    }
 
     session.onLogout(() => {
         setGlobalMode('E');
@@ -214,7 +212,7 @@ const MapView = () => {
                         friendsMap={isFriendsOn}
                         setFriendsMap={setFriendsOn}
                         isNewUbiOpen={isFormOpened}
-                        notify={showLocationDeleted}
+                        showLocationDeleted={showLocationDeletedNoti!}
                     />
                 
             </Grid>
@@ -239,7 +237,9 @@ const MapView = () => {
                     setGlobalCategory={setGlobalCategory}
                     setAcceptedMarker={setAcceptedMarker}
                     setGlobalDescription={setGlobalDescription}
-                    notify={showLocationAdded}
+                    showLocationAdded={showLocationAddedNoti!}
+                    showLevelUpNoti={showLevelUpNoti!}
+                    showExperienceNoti={showExperienceNoti!}
                 />
             </Grid>
             }

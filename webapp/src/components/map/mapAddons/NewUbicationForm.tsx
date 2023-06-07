@@ -1,9 +1,10 @@
 import Button from '@mui/material/Button';
-import React, { MutableRefObject, useState } from 'react';
+import React, { MutableRefObject } from 'react';
 import { useSession } from '@inrupt/solid-ui-react';
 import { IPMarker } from "../../../shared/SharedTypes";
 import { Slide, Stack, TextField, Select, MenuItem } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { GainExperience } from '../../../helpers/UsersHelper';
 
 interface INewUbicationFormProps {
   globalLat: number;
@@ -24,7 +25,9 @@ interface INewUbicationFormProps {
   setGlobalCategory: (globalCategory: string) => void;
   setGlobalOwner: (globalOwnr: string) => void;
   setAcceptedMarker: (acceptedMarker: boolean) => void;
-  notify: () => void;
+  showLocationAdded: () => void;
+  showLevelUpNoti: () => void;
+  showExperienceNoti: () => void;
 }
 
 const NewUbicationForm: React.FC<INewUbicationFormProps> = (props) => {
@@ -42,7 +45,17 @@ const NewUbicationForm: React.FC<INewUbicationFormProps> = (props) => {
 
     props.setAcceptedMarker(true);
 
+    showLocationAdded();
+
+    if (await GainExperience(session.info.webId!))
+      props.showLevelUpNoti();
+
     restartForm();
+  }
+
+  const showLocationAdded = () => {
+    props.showLocationAdded();
+    props.showExperienceNoti();
   }
 
   const restartForm = () => {
@@ -51,7 +64,6 @@ const NewUbicationForm: React.FC<INewUbicationFormProps> = (props) => {
     props.setFormOpened(false);
     props.setGlobalLat(0);
     props.setGlobalLng(0);
-    props.notify();
   }
 
   return (

@@ -3,15 +3,15 @@ import { Grid, Box, Button } from '@mui/material';
 import { useSession } from '@inrupt/solid-ui-react';
 import { IPMarker } from "../../../shared/SharedTypes";
 import { MarkerContext, Types } from '../../../context/MarkerContextProvider';
-import { notify } from 'reapop';
 import { useTranslation } from 'react-i18next';
 
-type UbicationProps = {
+interface UbicationProps {
     myMarkers?: IPMarker[];
     opt?: boolean;
+    showDeletedUbicationNoti?: () => void;
 }
 
-const UbicationsView = (props: UbicationProps) => {
+const UbicationsView: React.FC<UbicationProps> = ({showDeletedUbicationNoti, myMarkers}) => {
     const { session } = useSession();
     const { state: markers, dispatch } = useContext(MarkerContext);
 
@@ -24,11 +24,11 @@ const UbicationsView = (props: UbicationProps) => {
         return [];
     }
 
-    const ubications = (props.myMarkers === undefined) ? getMyUbications() : props.myMarkers;
+    const ubications = myMarkers ?? getMyUbications();
 
     const deleteMarker = (id: string) => {
         dispatch({ type: Types.DELETE_MARKER, payload: { id: id } });
-        notify(t("Notifications.okUbi"), "success");
+        showDeletedUbicationNoti!();
     }
     
     return (

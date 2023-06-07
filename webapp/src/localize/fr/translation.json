@@ -49,7 +49,9 @@
         "title": "Succès!",
         "addF": "Ami ajouté correctement!",
         "delF": "Ami supprimé correctement!",
-        "loading": "Chargement en cours..."
+        "loading": "Chargement en cours...",
+        "newExp": "Vous avez gagné 20 points d'expérience!",
+        "newLvl": "Vous êtes passé au niveau supérieur!"
     },
     "NewUbication":{
         "latitud": "Latitude",
@@ -88,6 +90,12 @@
         "addB": "Ajouter",
         "cancel": "Annuler",
         "noLoggedIn": "Connectez-vous pour voir vos amis"
+    },
+    "Stats":{
+        "level": "Niveau actuel: ",
+        "experience": "Points d'experience: ",
+        "nextLvl": "Niveau suivant: ",
+        "contributions": "Cotisations totales: "
     }
 }
         

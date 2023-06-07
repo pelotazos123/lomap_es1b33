@@ -1,7 +1,6 @@
-import { render, screen, act } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { IPMarker } from "../../shared/SharedTypes";
 import UbicationsView from "../map/mapAddons/UbicationsView";
-import NotificationsSystem, {setUpNotifications, useNotifications} from 'reapop'
 import { MarkerContextProvider } from "../../context/MarkerContextProvider";
 
 describe("UbicationsView", () => {
@@ -37,14 +36,10 @@ describe("UbicationsView", () => {
   };
   const markers = [marker1, marker2];
 
-  setUpNotifications({
-    generateId: () => 'mocked-id'
-  })
-
   it("displays a list of the user's ubications", async () => {
     render(
       <MarkerContextProvider>
-        <UbicationsView myMarkers={markers} opt={false}/>
+        <UbicationsView myMarkers={markers} opt={false} showDeletedUbicationNoti={jest.fn()}/>
       </MarkerContextProvider>
     );    
     
@@ -55,7 +50,7 @@ describe("UbicationsView", () => {
   it("displays a message when the user has no ubications", async () => {
     render(
       <MarkerContextProvider>
-        <UbicationsView opt={false}/>
+        <UbicationsView opt={false} showDeletedUbicationNoti={jest.fn()}/>
       </MarkerContextProvider>
     );
 

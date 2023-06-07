@@ -49,7 +49,9 @@
         "title": "¡Éxito!",
         "addF": "¡Amigo añadido correctamente!",
         "delF": "¡Amigo eliminado correctamente!",
-        "loading": "Cargando..."
+        "loading": "Cargando...",
+        "newExp": "¡Has ganado 20 puntos de experiencia!",
+        "newLvl": "¡Has subido de nivel!"
     },
     "NewUbication":{
         "latitud": "Latitud",
@@ -89,5 +91,11 @@
         "addB": "Añadir",
         "cancel": "Cancelar",
         "noLoggedIn": "Inicia sesión para ver a tus amigos"
+    },
+    "Stats":{
+        "level": "Nivel actual: ",
+        "experience": "Puntos de experiencia: ",
+        "nextLvl": "Siguiente nivel: ",
+        "contributions": "Contribuciones totales: "
     }
 }

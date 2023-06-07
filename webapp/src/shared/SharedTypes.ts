@@ -19,3 +19,9 @@ export interface Comment {
   text: string,
   img?: string
 }
+
+export interface IUser {
+  level: number,
+  experience: number,
+  numberOfContributions: number
+}
