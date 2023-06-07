@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './FriendForm.css'
 import { useTranslation } from 'react-i18next';
-import { notify } from 'reapop';
 import { Button } from '@mui/material';
 
 interface AddFriendFormProps {
@@ -15,7 +14,6 @@ const AddFriendForm: React.FC<AddFriendFormProps> = ({ onAddFriend, onCancel }) 
   const { t } = useTranslation("translation");
 
   const handleAddFriend = (event: React.FormEvent<HTMLFormElement>) => {
-    notify(t("Notifications.addF"), "success");
     event.preventDefault();
     onAddFriend(newFriendName);
     setNewFriendName('');    

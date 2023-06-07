@@ -6,7 +6,6 @@ import { useSession, LogoutButton } from '@inrupt/solid-ui-react';
 import { useTranslation } from 'react-i18next';
 import { PersonData, findPersonData } from '../helpers/SolidHelper';
 import i18n from 'i18next';
-import UserStats from './UserStats';
 
 type propsNav = {
     lang: string;
@@ -118,7 +117,7 @@ export const NavBar: React.FC<propsNav> = (props) => {
                         margin="1em">
 
                             <Link to="/userstats">
-                                <img src="stats.png" alt="accountStats"/>
+                                <img src="statts.png" alt="accountStats" height={35} width={35}/>
                             </Link>
                             <Box component="p" color={'white'}>
                                 {personData?.name}

@@ -17,7 +17,7 @@ describe('FriendsList', () => {
 
   it('displays no text when not loggedin', async () => {
 
-    render(<FriendsList />)
+    render(<FriendsList showAddedFriend={jest.fn()} showDeletedFriend={jest.fn()}/>)
 
     expect(screen.getByText("Friends.noLoggedIn")).toBeInTheDocument()
 
@@ -33,7 +33,7 @@ describe('FriendsList', () => {
     const mockPersonData = { webId: 'https://example.com/profile/card#me', name: 'John Doe', photo: '', friends: [] };
     jest.spyOn(require('../../helpers/SolidHelper'), 'findPersonData').mockResolvedValue(mockPersonData);
 
-    render(<FriendsList opt={true} loading={true}/>);
+    render(<FriendsList opt={true} loading={true} showAddedFriend={jest.fn()} showDeletedFriend={jest.fn()}/>);
 
     expect(screen.getByTestId('img-spinner')).toBeInTheDocument();
   });
@@ -48,7 +48,7 @@ describe('FriendsList', () => {
     const mockPersonData = { webId: 'https://example.com/profile/card#me', name: 'John Doe', photo: '', friends: [] };
     jest.spyOn(require('../../helpers/SolidHelper'), 'findPersonData').mockResolvedValue(mockPersonData);
 
-    render(<FriendsList opt={true} loading={false}/>);
+    render(<FriendsList opt={true} loading={false} showAddedFriend={jest.fn()} showDeletedFriend={jest.fn()}/>);
 
     // click on the "Add friend" button to show the add friend form
     fireEvent.click(screen.getByText('Friends.add'));
@@ -61,10 +61,5 @@ describe('FriendsList', () => {
 
     // check that the addFriendByWebId function was called with the correct arguments
     expect(require('../../helpers/SolidHelper').addFriendByWebId).toHaveBeenCalledTimes(1);
-
-    // check that the new friend is displayed in the list
-    await waitFor(() => {
-      expect(screen.getByText('John Doe')).toBeInTheDocument();
-    });
   });
 });

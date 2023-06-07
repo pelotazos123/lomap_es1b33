@@ -4,12 +4,13 @@ import React, { useState, useEffect } from 'react';
 import { useSession } from '@inrupt/solid-ui-react';
 import { PersonData, findPersonData, addFriendByWebId, deleteFriendByWebId } from '../../helpers/SolidHelper';
 import { useTranslation } from 'react-i18next';
-import { notify } from 'reapop';
 import { Button, Link } from '@mui/material';
 
 type FriendProps = {
   opt?: boolean;
   loading?: boolean;
+  showAddedFriend?: () => void;
+  showDeletedFriend?: () => void;
 }
 
 const FriendsList = (props: FriendProps) => {
@@ -62,9 +63,9 @@ const FriendsList = (props: FriendProps) => {
    * @param webId the new friend's id
    */
   const handleAddFriend = async (webId: string) => {
-    addFriendByWebId(session.info.webId!, webId);
+    await addFriendByWebId(session.info.webId!, webId);
     setShowAddFriendForm(false);
-    
+    props.showAddedFriend!();
     const friendData = await findPersonData(webId);
     setFriendList(friends.concat(friendData));
   };
@@ -83,7 +84,7 @@ const FriendsList = (props: FriendProps) => {
   const handleRemoveFriend = (webId: string) => {
     deleteFriendByWebId(session.info.webId!, webId);
     setFriendList(friends.filter(friend => friend.webId !== webId))
-    notify(t("Notifications.delF"), "success");
+    props.showDeletedFriend!();
   };
 
 

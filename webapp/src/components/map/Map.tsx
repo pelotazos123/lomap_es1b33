@@ -4,7 +4,6 @@
     import { useSession } from '@inrupt/solid-ui-react';
     import { MarkerContext, Types } from '../../context/MarkerContextProvider';
     import React, { useEffect, useRef, useState, useContext, MutableRefObject } from 'react';
-    import { notify } from 'reapop';
     import { useTranslation } from 'react-i18next';
 
     interface IMarker {
@@ -47,7 +46,7 @@
         setGlobalAddress: (globalAddress: string) => void;
         setAcceptedMarker: (acceptedMarker: boolean) => void;
         setFriendsMap: (friendsMap: boolean) => void;
-        notify: () => void;
+        showLocationDeleted: () => void;
     }
 
     // Aclaración: los comentarios en los useEffect deshabilitan warnings.
@@ -55,7 +54,7 @@
     // quebraderos de cabeza y/o bucles infinitos, lo que se escapa
     // del ámbito de esta asignatura.
 
-const LoMap: React.FC<IMapProps> = (props) => {
+const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
     const { session } = useSession();
     const ref = useRef<HTMLDivElement>(null);                               // Contenedor HTML del mapa
     const [map, setMap] = useState<GoogleMap>();                            // useState para conservar la referencia al mapa
@@ -65,7 +64,9 @@ const LoMap: React.FC<IMapProps> = (props) => {
     const [lastAddedCouple, setLastAddedCouple] = useState<ICouple>();      // Último par (marcador, ventana de información) añadidos al mapa
     const [googleMarkers, setGoogleMarkers] = useState<GoogleMarker[]>([]); // useState para conservar referencias a todos los marcadores que se crean
     const [isLoaded, setLoaded] = useState<boolean>(false);
+
     const DEFAULT_MAP_ZOOM = 15;
+
     const { t } = useTranslation("translation");
 
         /**
@@ -76,6 +77,7 @@ const LoMap: React.FC<IMapProps> = (props) => {
                 defaultMapStart();           // Si el mapa no está iniciado, lo inicia
             } else {
                 if (session.info.isLoggedIn) {
+                    setLoaded(true);
                     addInitMarker();                // Añade un marcador para evitar problemas con los Spinner del formulario
                     initEventListener();            // Inicia el listener encargado de escuchar clicks en el mapa
                 }
@@ -207,10 +209,8 @@ const LoMap: React.FC<IMapProps> = (props) => {
                         marker.setMap(null);
                         dispatch({ type: Types.DELETE_MARKER, payload: { id: id } });
                     }
-                    props.notify();
-                } else {
-                    notify(t("MapView.errorDel"), "error");
-                }
+                    props.showLocationDeleted();
+                } 
             });
 
             setGoogleMarkers(googleMarkers => [...googleMarkers, marker]);   // Actualizo el useState para conservar su referencia

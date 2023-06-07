@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LoginButton } from "@inrupt/solid-ui-react";
 import { Button, Dialog, FormGroup, Stack, Select, MenuItem, TextField, Container } from "@mui/material";
 import { useTranslation } from "react-i18next";
@@ -8,7 +8,7 @@ export interface LoginProps {
   onClose: () => void;
 }
 
-function LoginForm(props: LoginProps): JSX.Element {
+function LoginForm(props: LoginProps): React.JSX.Element {
   const { onClose, open } = props;
   const [disabled, setDisabled] = useState<boolean>(true);
   const [oidcIssuer, setOidcIssuer] = useState<string>("");
@@ -41,7 +41,7 @@ function LoginForm(props: LoginProps): JSX.Element {
               <Select
                 role="slcRole"
                 value={itemSelected}
-                onChange={e => setItemSelected(e.target.value as string)}
+                onChange={e => setItemSelected(e.target.value)}
                 sx={{ width: '15em', margin: '0.5em' }}
               >
                 <MenuItem value={"https://inrupt.net/"}>Inrupt</MenuItem>

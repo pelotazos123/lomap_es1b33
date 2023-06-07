@@ -1,5 +1,5 @@
 import { FOAF } from "@inrupt/vocab-common-rdf";
-import { IPMarker } from "../shared/SharedTypes";
+import { IPMarker, IUser } from "../shared/SharedTypes";
 import { fetch } from "@inrupt/solid-client-authn-browser"
 import {
     Thing,
@@ -36,15 +36,47 @@ export interface PersonData {
 }
 
 export async function readMarkers(webId: string) {
+    console.log("entro a leer")
     let fileURL = `${parseURL(webId)}public/lomap/markers.json`;
     let markers = await readMarkersFromFile(fileURL);
 
     return markers;
 };
 
+export async function readUserInfo(webId: string) {     
+    let fileURL = `${parseURL(webId)}private/lomap/lomapUser.json`;
+    let info = await readInfoFromFile(fileURL);
+
+    return info;
+}
+
+async function readInfoFromFile(fileUrl: string){
+    let infoUser: IUser|null =  null;
+
+    try{
+        await getFile(fileUrl, { fetch: fetch })
+            .then(async (file) => { infoUser = JSON.parse(await file.text()); })
+            .catch(async () => {
+                let fileType = "application/json;charset=utf-8";
+                await saveFileInContainer(fileUrl,
+                    new Blob(undefined, { type: fileType }),
+                    {
+                        slug: "lomapUser.json",
+                        contentType: fileType,
+                        fetch: fetch
+                    }
+                );
+            });
+    } catch (error) {
+        console.error("Error reading the user's info");
+    }
+
+    return infoUser;
+}
+
 async function readMarkersFromFile(fileURL: string) {
     let markers: IPMarker[] = [];
-
+    console.log("empiezo a leer")
     try {
         await getFile(fileURL, { fetch: fetch })
             .then(async (file) => { markers = JSON.parse(await file.text()); })
@@ -53,25 +85,48 @@ async function readMarkersFromFile(fileURL: string) {
                 await saveFileInContainer(fileURL,
                     new Blob(undefined, { type: fileType }),
                     {
-                        slug: "Markers.json",
+                        slug: "markers.json",
                         contentType: fileType,
                         fetch: fetch
                     }
                 );
             });
     } catch (error) {
-        // console.error(error);
         console.error("Error reading the markers");
     }
     return markers;
 }
 
+export async function saveUserInfo(info: IUser, webId: string){
+    let fileURL = `${parseURL(webId)}private/lomap/lomapUser.json`;
+    await saveInfoToFile(info, fileURL);
+}
+
+async function saveInfoToFile(info: IUser, fileURL: string) {
+    const blob = new Blob([(new TextEncoder()).encode(JSON.stringify(info))], {
+        type: "application/json;charset=utf-8"
+    });
+    
+    try {
+        await overwriteFile(fileURL, blob,
+            {
+                contentType: blob.type,
+                fetch: fetch
+            }
+        );
+    } catch (error) {
+        console.error("Error saving markers: ", error)
+    }
+}
+
 export async function saveMarkers(markers: IPMarker[], webId: string) {
+    console.log("entro a guardar")
     let fileURL = `${parseURL(webId)}public/lomap/markers.json`;
     await saveMarkersToFile(markers, fileURL);
 };
 
 async function saveMarkersToFile(markers: IPMarker[], fileURL: string) {
+    console.log("empiezo a guardar")
     const blob = new Blob([(new TextEncoder()).encode(JSON.stringify(markers))], {
         type: "application/json;charset=utf-8"
     });
@@ -84,7 +139,6 @@ async function saveMarkersToFile(markers: IPMarker[], fileURL: string) {
             }
         );
     } catch (error) {
-        // console.error(error);
         console.error("Error saving markers: ", error)
     }
 }
@@ -166,12 +220,10 @@ async function grantAccessToMarkers(webId: string, access: boolean) {
                         }
                     );
                 } catch (error) {
-                    // console.error(error);
                     console.error("Error overwritting the file.")
                 }
             });
     } catch (error) {
-        // console.error(error);
         console.error("Error accesing the markers from: ", webId)
     }
 
@@ -220,7 +272,7 @@ export async function readFriendMarkers(webId: string) {
                     await saveFileInContainer(fileURL,
                         new Blob(undefined, { type: fileType }),
                         {
-                            slug: "Markers.json",
+                            slug: "markers.json",
                             contentType: fileType,
                             fetch: fetch
                         }

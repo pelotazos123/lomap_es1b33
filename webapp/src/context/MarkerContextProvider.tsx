@@ -1,12 +1,12 @@
-import { createContext } from 'react';
-import { Dispatch, useReducer } from "react";
+import { createContext, Dispatch, useReducer } from 'react';
 import { IPMarker } from "../shared/SharedTypes";
 
+
 export enum Types {
-    ADD_MARKER = 'ADD_MARKER',
-    SET_MARKERS = 'SET_MARKERS',
-    DELETE_MARKER = 'DELETE_MARKER',
-    UPDATE_MARKER = 'UPDATE_MARKER'
+  ADD_MARKER = 'ADD_MARKER',
+  SET_MARKERS = 'SET_MARKERS',
+  DELETE_MARKER = 'DELETE_MARKER',
+  UPDATE_MARKER = 'UPDATE_MARKER'
 }
 
 type MarkerActions = {
@@ -29,7 +29,7 @@ type MarkerActions = {
     payload: {
         id: string, marker: IPMarker;
     };
-}
+} 
 
 export const MarkerContext = createContext<{ state: IPMarker[], dispatch: Dispatch<MarkerActions> }>({ state: [], dispatch: () => null })
 

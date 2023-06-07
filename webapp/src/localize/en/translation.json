@@ -49,7 +49,9 @@
         "title": "Success!",
         "addF": "Friend added correctly!",
         "delF": "Friend deleted correctly!",
-        "loading": "Loading..."
+        "loading": "Loading...",
+        "newExp": "You gained 20 experience points!",
+        "newLvl": "You leveled Up!"
     },
     "NewUbication":{
         "latitud": "Latitude",
@@ -89,5 +91,11 @@
         "addB": "Add",
         "cancel": "Cancel",
         "noLoggedIn": "Log-In to see your friends"
+    },
+    "Stats":{
+        "level": "Current level: ",
+        "experience": "Xp: ",
+        "nextLvl": "Next level: ",
+        "contributions": "Total contributions: "
     }
 }
