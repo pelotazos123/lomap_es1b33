@@ -63,7 +63,7 @@ export const NavBar: React.FC<propsNav> = (props) => {
     }
     useEffect(() => {
         if (props.opt)
-            i18n.changeLanguage(props.lang);
+            i18n.changeLanguage(props.lang).catch(error => console.error(error));
     }, [props.lang]);
         
 

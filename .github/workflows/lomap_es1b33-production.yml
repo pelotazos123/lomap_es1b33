@@ -37,7 +37,7 @@ jobs:
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@v5
       env:
-        DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+        APP_URI: ${{ secrets.APP_URI }}
         API_KEY_GOOGLE_MAPS: ${{ secrets.API_KEY_GOOGLE_MAPS }}
         CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
         CLOUDINARY_PRESET: ${{ secrets.CLOUDINARY_PRESET }}
@@ -51,7 +51,7 @@ jobs:
           password: ${{ secrets.DOCKER_PUSH_TOKEN }}
           registry: ghcr.io
           workdir: webapp
-          buildargs: DEPLOY_HOST, API_KEY_GOOGLE_MAPS, CLOUDINARY_CLOUD_NAME, CLOUDINARY_PRESET, CLOUDINARY_API_KEY, CLOUDINARY_API_API_SECRET,HTTPS_PRIVATEKEY, HTTPS_CERTIFICATE
+          buildargs: APP_URI, API_KEY_GOOGLE_MAPS, CLOUDINARY_CLOUD_NAME, CLOUDINARY_PRESET, CLOUDINARY_API_KEY, CLOUDINARY_API_API_SECRET,HTTPS_PRIVATEKEY, HTTPS_CERTIFICATE
   deploy:
     name: Deploy over SSH
     runs-on: ubuntu-latest
