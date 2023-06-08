@@ -9,7 +9,7 @@ import FriendsList from './components/friends/Friends';
 import React, { useContext, useEffect, useState } from 'react';
 import MapView from './components/map/mapAddons/MapView';
 import UbicationsView from './components/map/mapAddons/UbicationsView';
-import { PersonData, findPersonData, readFriendMarkers, readMarkers, readUserInfo, saveUserInfo } from './helpers/SolidHelper';
+import { readFriendMarkers, readMarkers, readUserInfo, saveUserInfo } from './helpers/SolidHelper';
 import { MarkerContext, Types } from './context/MarkerContextProvider';
 import AboutUs from './components/AboutUs';
 import NotificationsSystem, { atalhoTheme, setUpNotifications, useNotifications } from "reapop";

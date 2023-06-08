@@ -6,7 +6,7 @@ WORKDIR /app
 RUN npm install
 
 
-ARG DEPLOY_HOST="https://localhost"
+ARG DEPLOY_HOST="https://lomap-es1b33.westeurope.cloudapp.azure.com"
 ENV REACT_APP_HOST=$DEPLOY_HOST
 ENV REACT_APP_API_KEY_GOOGLE_MAPS=$API_KEY_GOOGLE_MAPS
 ENV REACT_APP_CLOUD_NAME=$CLOUDINARY_CLOUD_NAME
@@ -24,5 +24,5 @@ ENV REACT_APP_HTTPS_CERTIFICATE=$HTTPS_CERTIFICATE
 RUN npm run build
 
 #Execute npm run prod to run the server
-#CMD [ "npm", "run", "prod" ]
-CMD ["npm", "start"]
+CMD [ "npm", "run", "prod" ]
+#CMD ["npm", "start"]
