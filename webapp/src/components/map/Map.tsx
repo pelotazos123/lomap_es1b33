@@ -115,7 +115,7 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
         /**
          * Inicia el listener encargado de escuchar clicks en el mapa
          */
-        const initEventListener = (): void => {
+        const initEventListener = () => {
             
             listenerRef.current = google.maps.event.addListener(map!, 'click', async function (e) { // Una vez se recibe un click...
                 props.setGlobalLat(e.latLng.lat());                           // Cambio las coordenadas en los campos del formulario
