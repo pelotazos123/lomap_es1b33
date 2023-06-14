@@ -255,7 +255,7 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
         useEffect(() => {
             let location = new google.maps.LatLng(props.globalLat, props.globalLng);        // Accedo a los campos del formulario
             
-            coordinateToAddress(location).then(address => props.setGlobalAddress(address)); // Actualizado la dirección del marcador
+            coordinateToAddress(location).then(address => props.setGlobalAddress(address)).catch(error => console.error(error)); // Actualizado la dirección del marcador
 
             if (lastAddedCouple) {
                 lastAddedCouple.marker.setPosition(location);                               // Cambio su posición

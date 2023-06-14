@@ -51,7 +51,8 @@
         "delF": "Ami supprimé correctement!",
         "loading": "Chargement en cours...",
         "newExp": "Vous avez gagné 20 points d'expérience!",
-        "newLvl": "Vous êtes passé au niveau supérieur!"
+        "newLvl": "Vous êtes passé au niveau supérieur!",
+        "newLog": "Tu as obtenu une nouvelle réussite !"
     },
     "NewUbication":{
         "latitud": "Latitude",
@@ -95,7 +96,10 @@
         "level": "Niveau actuel: ",
         "experience": "Points d'experience: ",
         "nextLvl": "Niveau suivant: ",
-        "contributions": "Cotisations totales: "
+        "contributions": "Cotisations totales: ",
+        "achievement": "Réussite",
+        "locked": "Réussite à débloquer",
+        "press": "Presse-moi"
     }
 }
         

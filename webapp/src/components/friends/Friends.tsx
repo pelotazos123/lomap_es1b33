@@ -24,7 +24,7 @@ const FriendsList = (props: FriendProps) => {
   const { t } = useTranslation("translation");
 
   useEffect(() => {
-    loadData()
+    loadData().catch(error => console.error("Unable to load friends data"))
   }, [showAddFriendForm]);
 
   /**

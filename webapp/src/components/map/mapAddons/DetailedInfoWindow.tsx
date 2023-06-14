@@ -31,7 +31,7 @@ const DetailedUbicationView: React.FC<DetailedUbicationViewProps> = (props) => {
 
   const { t } = useTranslation("translation");
     
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handlSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const newComment = {
@@ -121,7 +121,7 @@ const DetailedUbicationView: React.FC<DetailedUbicationViewProps> = (props) => {
             </Button>
           </Box>
           <Dialog onClose={() => setRatingOpen(false)} open={isRatingOpen}>
-            <form name="newRating" onSubmit={handleSubmit}>
+            <form name="newRating" onSubmit={handlSubmit}>
               <Stack direction='column' sx={{ width: '30em', padding: '1em' }}>
                 <Stack direction='row'>
                   <h1 style={{ margin: '0' }}>{t("DetailedInfo.rate")}</h1>

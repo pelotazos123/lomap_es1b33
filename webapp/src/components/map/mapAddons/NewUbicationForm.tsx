@@ -28,6 +28,7 @@ interface INewUbicationFormProps {
   showLocationAdded: () => void;
   showLevelUpNoti: () => void;
   showExperienceNoti: () => void;
+  showNewAchievement: () => void;
 }
 
 const NewUbicationForm: React.FC<INewUbicationFormProps> = (props) => {
@@ -47,8 +48,12 @@ const NewUbicationForm: React.FC<INewUbicationFormProps> = (props) => {
 
     showLocationAdded();
 
-    if (await GainExperience(session.info.webId!))
+    let res = await GainExperience(session.info.webId!);
+
+    if (res[0])
       props.showLevelUpNoti();
+    if (res[1])
+      props.showNewAchievement();
 
     restartForm();
   }

@@ -63,10 +63,13 @@ function App(): React.JSX.Element {
       let info = await readUserInfo(session.info.webId!);
 
       if (info == null){
+        let basicBadges = ["logroLvl1Dis", "logroLvl10Dis", "logroLvl50Dis", "logroLvl100Dis"]
+
         const newUser: IUser = {
           level: 1,
           experience: 0,
-          numberOfContributions: 0
+          numberOfContributions: 0,
+          badgesObtained: basicBadges
         }
         
         await saveUserInfo(newUser, session.info.webId!);
@@ -104,6 +107,10 @@ function App(): React.JSX.Element {
       notify(t("Notifications.newLvl"), 'success');
     }
 
+    const showNewAchievementNoti = () => {
+      notify(t("Notifications.newLog"), 'success');
+    }
+
     return (
       <>
         <NavBar lang={lang} setLang={setLang} opt={true} >
@@ -113,7 +120,7 @@ function App(): React.JSX.Element {
               <HomeView />
             } />
             <Route path="/map" element={scriptLoaded &&
-              (<MapView showLocationAddedNoti={showLocationAdded} showLocationDeletedNoti={showLocationDeleted} showExperienceNoti={showExperienceNoti} showLevelUpNoti={showLevelUpNoti}/>)
+              (<MapView showLocationAddedNoti={showLocationAdded} showLocationDeletedNoti={showLocationDeleted} showExperienceNoti={showExperienceNoti} showLevelUpNoti={showLevelUpNoti} showNewAchievementNoti={showNewAchievementNoti}/>)
             } />
             <Route path={isLoggedIn ? "/ubications" : "/map"} element={
               <UbicationsView opt={true} showDeletedUbicationNoti={showLocationDeleted}/>

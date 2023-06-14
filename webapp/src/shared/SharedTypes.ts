@@ -23,5 +23,6 @@ export interface Comment {
 export interface IUser {
   level: number,
   experience: number,
-  numberOfContributions: number
+  numberOfContributions: number,
+  badgesObtained: string[]
 }

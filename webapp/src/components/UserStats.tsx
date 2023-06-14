@@ -1,4 +1,4 @@
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container, Typography} from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IUser } from '../shared/SharedTypes';
@@ -16,6 +16,9 @@ const UserStats: React.FC<IUser> = (props) => {
 
     const { session } = useSession();
 
+    let arrayRandom = new Uint32Array(100);
+
+
     useEffect(() => {
       if (session.info.isLoggedIn)
           searchPersonData(session.info.webId)
@@ -23,7 +26,7 @@ const UserStats: React.FC<IUser> = (props) => {
     }, [session.info.isLoggedIn] );
 
     useEffect(() => {
-      updateInfo();
+      updateInfo().catch(error => console.error("Unable to update info"));
     }, [markers]);
 
     async function updateInfo(){
@@ -58,24 +61,39 @@ const UserStats: React.FC<IUser> = (props) => {
               color: "white"
           }}
       >
-        {!isLoading ? 
-          <Box p={3} sx={{textAlign: 'left'}}>
-            <Typography variant="h3" sx={{ mb: 3, textAlign: 'center'}}>
-              {username}
-            </Typography>
-            <Typography sx={{ color: "#AAA", mb: 3, fontSize: 20 }}>
-              {t("Stats.level")} {info.level}
-            </Typography>
-            <Typography sx={{ color: "#AAA", mb: 3, fontSize: 20 }}>
-              {t("Stats.experience")} {info.experience}
-            </Typography>
-            <Typography sx={{ color: "#AAA", mb: 3, fontSize: 20 }}>
-              {t("Stats.nextLvl")} {(info.level*100) - info.experience}
-            </Typography>
-            <Typography sx={{ color: "#AAA", mb: 3, fontSize: 20 }}>
-              {t("Stats.contributions")} {info.numberOfContributions}
-            </Typography>
-          </Box>
+        {!isLoading && info.badgesObtained!=undefined ? 
+          <>
+            <Box p={3}>
+              <Box sx={{textAlign: 'left'}}>
+                <Typography variant="h4" sx={{ mb: 3, textAlign: 'center'}}>
+                  {username}
+                </Typography>
+                <Typography sx={{ color: "#AAA", mb: 3, fontSize: 20 }}>
+                  {t("Stats.level")} {info.level}
+                </Typography>
+                <Typography sx={{ color: "#AAA", mb: 3, fontSize: 20 }}>
+                  {t("Stats.experience")} {info.experience}
+                </Typography>
+                <Typography sx={{ color: "#AAA", mb: 3, fontSize: 20 }}>
+                  {t("Stats.nextLvl")} {(info.level*100) - info.experience}
+                </Typography>
+                <Typography sx={{ color: "#AAA", mb: 3, fontSize: 20 }}>
+                  {t("Stats.contributions")} {info.numberOfContributions}
+                </Typography>
+              </Box>
+              
+              <Box sx={{textAlign: 'left'}}>
+                <Typography variant="h4" sx={{ mb: 3, textAlign: 'center'}}>
+                  {t("Stats.achievement")}
+                </Typography>   
+                <Box>
+                  {info.badgesObtained.map((image) => {
+                    return <img src={"/"+image+".png"} key={""+crypto.getRandomValues(arrayRandom)} title={image.includes("Dis") ? t("Stats.locked")! : t("Stats.press")!} width={200}/>
+                  })}
+                </Box>
+              </Box>
+            </Box>
+          </>
           :
           <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <img src="loading-gif2.gif" alt="loading-spinner" data-testid="img-spinner" style={{display: 'block'}}/>

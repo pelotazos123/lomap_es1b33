@@ -51,7 +51,8 @@
         "delF": "Friend deleted correctly!",
         "loading": "Loading...",
         "newExp": "You gained 20 experience points!",
-        "newLvl": "You leveled Up!"
+        "newLvl": "You leveled Up!",
+        "newLog": "New achievements unlocked!"
     },
     "NewUbication":{
         "latitud": "Latitude",
@@ -96,6 +97,9 @@
         "level": "Current level: ",
         "experience": "Xp: ",
         "nextLvl": "Next level: ",
-        "contributions": "Total contributions: "
+        "contributions": "Total contributions: ",
+        "achievement": "Achievements",
+        "locked": "Achievement to unlock",
+        "press": "Press me"
     }
 }

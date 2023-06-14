@@ -51,7 +51,8 @@
         "delF": "¡Amigo eliminado correctamente!",
         "loading": "Cargando...",
         "newExp": "¡Has ganado 20 puntos de experiencia!",
-        "newLvl": "¡Has subido de nivel!"
+        "newLvl": "¡Has subido de nivel!",
+        "newLog": "¡Has conseguido un logro nuevo!"
     },
     "NewUbication":{
         "latitud": "Latitud",
@@ -96,6 +97,9 @@
         "level": "Nivel actual: ",
         "experience": "Puntos de experiencia: ",
         "nextLvl": "Siguiente nivel: ",
-        "contributions": "Contribuciones totales: "
+        "contributions": "Contribuciones totales: ",
+        "achievement": "Logros",
+        "locked": "Logro a desbloquear",
+        "press": "Presioname"
     }
 }

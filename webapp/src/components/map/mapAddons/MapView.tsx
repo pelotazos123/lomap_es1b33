@@ -28,9 +28,10 @@ interface MapviewProps{
     showLocationDeletedNoti?: () => void;
     showLevelUpNoti?: () => void;
     showExperienceNoti?: () => void;
+    showNewAchievementNoti?: () => void;
 }
 
-const MapView: React.FC<MapviewProps> = ({showLocationAddedNoti, showLocationDeletedNoti, showLevelUpNoti, showExperienceNoti}) => {
+const MapView: React.FC<MapviewProps> = ({showLocationAddedNoti, showLocationDeletedNoti, showLevelUpNoti, showExperienceNoti, showNewAchievementNoti}) => {
     const { session } = useSession();
     const nextID = useRef<string>(uuid());
     const [globalLat, setGlobalLat] = useState<number>(0);
@@ -71,7 +72,7 @@ const MapView: React.FC<MapviewProps> = ({showLocationAddedNoti, showLocationDel
         if (session.info.isLoggedIn) {
             console.log("guardo");
             saveMarkers(markers.filter((marker) => marker.webId === session.info.webId!),
-                session.info.webId!);
+                session.info.webId!).catch(error => console.error("Unable to save markers"));
         }        
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [markers]);
@@ -240,6 +241,7 @@ const MapView: React.FC<MapviewProps> = ({showLocationAddedNoti, showLocationDel
                     showLocationAdded={showLocationAddedNoti!}
                     showLevelUpNoti={showLevelUpNoti!}
                     showExperienceNoti={showExperienceNoti!}
+                    showNewAchievement={showNewAchievementNoti!}
                 />
             </Grid>
             }
