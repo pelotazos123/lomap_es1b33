@@ -142,6 +142,7 @@ const MapView: React.FC<MapviewProps> = ({showLocationAddedNoti, showLocationDel
                             <Stack direction='row'>
                                 <h1 style={{ margin: '0' }}>{t("MapView.filtra")}</h1>
                                 <IconButton sx={{ marginLeft: 'auto', marginRight: '0em' }} onClick={async () => setFilterOpen(false)}><Close /></IconButton>
+                                 {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
                             </Stack>
                             <h2>{t("MapView.name")}</h2>
                             <TextField value={globalFilterName} onChange={(e) => setGlobalFilterName(e.target.value)}></TextField>
@@ -176,6 +177,7 @@ const MapView: React.FC<MapviewProps> = ({showLocationAddedNoti, showLocationDel
                                 border: '2px solid'
                             }}
                             onClick={async () => setFormOpened(!isFormOpened)}
+                            // eslint-disable-next-line @typescript-eslint/no-misused-promises
                         >{t("MapView.newub")}</Button>
                     }
                 </Stack>

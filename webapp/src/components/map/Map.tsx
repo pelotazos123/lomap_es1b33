@@ -117,17 +117,18 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
          */
         const initEventListener = () => {
             
-            listenerRef.current = google.maps.event.addListener(map!, 'click', async function (e) { // Una vez se recibe un click...
-                props.setGlobalLat(e.latLng.lat());                           // Cambio las coordenadas en los campos del formulario
+            listenerRef.current = google.maps.event.addListener(map!, 'click', async function (e) { 
+                props.setGlobalLat(e.latLng.lat());                           
                 props.setGlobalLng(e.latLng.lng());
                 
-                setMarker({                                                   // Y actualizo el useState "marker"
+                setMarker({                                                   
                     address: "",
                     latLng: e.latLng,
-                    name: "Placeholder nombre",                               // Placeholders para evitar problemas al acceder a los campos del formulario
+                    name: "Placeholder nombre",                               
                     category: "Placeholder categoría",
                     description: "Placeholder descripción"
                 })
+                // eslint-disable-next-line @typescript-eslint/no-misused-promises
             })            
         };
 
@@ -141,11 +142,11 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
          */
         useEffect(() => {
             if (marker) {
-                marker.name = formatName(); // Ahora sí, accede a los campos del formulario
+                marker.name = formatName(); 
                 marker.category = props.globalCategory;
                 marker.description = formatDescription();
 
-                addMarker(marker);          // Añade un marcador
+                addMarker(marker);          
             }
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [marker]);
@@ -172,10 +173,10 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
          */
         const addMarker = (iMarker: IMarker): void => {
             if (lastAddedCouple) {
-                lastAddedCouple.marker.setMap(null);                            // Elimina del mapa el último marcador añadido
+                lastAddedCouple.marker.setMap(null);                            
             }
 
-            setLastAddedCouple(generateMarker(iMarker, props.nextID.current));    // Genera un par (marcador, ventana de información) y actualiza el useState correspondiente
+            setLastAddedCouple(generateMarker(iMarker, props.nextID.current));  
         };
 
         /**
@@ -186,14 +187,12 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
          */
         const generateMarker = (notAddedMarker: IMarker, id: string): ICouple => {
             const marker: GoogleMarker = new google.maps.Marker({
-                position: notAddedMarker.latLng,                             // Posición del marcador
-                icon: "marker.png",                                     // Icono del marcador
-                map: map                                                     // Referencia al mapa
+                position: notAddedMarker.latLng,                             
+                icon: "marker.png",                                     
+                map: map                                                     
             });
 
-            marker.addListener('click', () => {                              // Cuando hago click en el marcador...
-                //infoWindow.open(map, marker);                                // Abro la ventana de información correspondiente.
-
+            marker.addListener('click', () => {                             
                 let detailedMarker = markers.find(marker => marker.id === id);
                 if (detailedMarker) {
                     props.setMarkerShown(detailedMarker);
@@ -213,7 +212,7 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
                 } 
             });
 
-            setGoogleMarkers(googleMarkers => [...googleMarkers, marker]);   // Actualizo el useState para conservar su referencia
+            setGoogleMarkers(googleMarkers => [...googleMarkers, marker]);   
 
             return { marker };
         }
@@ -223,15 +222,15 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
          * @param location coordenadas del marcador
          */
         const addHomeMarker = (location: GoogleLatLng): void => {
-            const homeMarkerConst: GoogleMarker = new google.maps.Marker({ // Mismo proceso que en generateMarker()
+            const homeMarkerConst: GoogleMarker = new google.maps.Marker({ 
                 icon: "home.png",
                 position: location,
                 map: map
             });
 
-            homeMarkerConst.addListener('click', () => {                   // Cuando hago click en el marcador...
-                map?.panTo(location);                                      // Centro el mapa en el marcador
-                map?.setZoom(DEFAULT_MAP_ZOOM);                                           // Aumento el zoom
+            homeMarkerConst.addListener('click', () => {                   
+                map?.panTo(location);                                      
+                map?.setZoom(DEFAULT_MAP_ZOOM);                                           
             });
         };
 
@@ -253,12 +252,12 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
          * las coordenadas en el formulario
          */
         useEffect(() => {
-            let location = new google.maps.LatLng(props.globalLat, props.globalLng);        // Accedo a los campos del formulario
+            let location = new google.maps.LatLng(props.globalLat, props.globalLng);      
             
-            coordinateToAddress(location).then(address => props.setGlobalAddress(address)).catch(error => console.error(error)); // Actualizado la dirección del marcador
+            coordinateToAddress(location).then(address => props.setGlobalAddress(address)).catch(error => console.error(error)); 
 
             if (lastAddedCouple) {
-                lastAddedCouple.marker.setPosition(location);                               // Cambio su posición
+                lastAddedCouple.marker.setPosition(location);                               
             }
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [props.globalLat, props.globalLng]);
@@ -268,11 +267,11 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
          * a los listener del último marcador
          */
         const updateMarkerListeners = () => {
-            let updatedMarker = markers.find(marker => marker.id === props.nextID.current)!; // Toma su versión persistente
-            generateMarker(parseMarker(updatedMarker), updatedMarker.id);                    // La añade al mapa
-            props.nextID.current = uuid();                                             // Actualiza el próximo ID a utilizar
+            let updatedMarker = markers.find(marker => marker.id === props.nextID.current)!; 
+            generateMarker(parseMarker(updatedMarker), updatedMarker.id);                    
+            props.nextID.current = uuid();                                             
 
-            lastAddedCouple?.marker.setMap(null);                                            // Borra su versión obsoleta del mapa
+            lastAddedCouple?.marker.setMap(null);                                          
         }
 
         /**
@@ -280,13 +279,13 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
          */
         useEffect(() => {
             if (lastAddedCouple && props.acceptedMarker) {
-                updateMarkerListeners();                                    // Debemos actualizar sus listener, pues hacen referencia a valores antiguos...
+                updateMarkerListeners();                                    
 
-                lastAddedCouple.marker = new google.maps.Marker();          // Corta la referencia al último marcador añadido
+                lastAddedCouple.marker = new google.maps.Marker();          
 
-                props.setAcceptedMarker(false);                             // Cambia el useState a false
+                props.setAcceptedMarker(false);                             
 
-                addInitMarker();                                            // Añade un marcador en su posición para evitar problemas con los Spinner
+                addInitMarker();                                            
             }
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [props.acceptedMarker]);
@@ -296,11 +295,11 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
          * en función de la opción seleccionada
          */
         useEffect(() => {
-            deleteAllMarkers(); // Borra todos los marcadores del mapa
+            deleteAllMarkers(); 
 
             switch (props.globalMode) {
                 case 'M':
-                    loadContext(); // Carga los marcadores del contexto
+                    loadContext(); 
                     break;
                 case 'A':
                     loadFriendMarkers();
@@ -309,7 +308,6 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
                     break;
                 default:
             }
-
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [props.globalMode, props.globalFilterName, props.globalFilterCategories, isLoaded]);
 
@@ -318,8 +316,8 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
          */
         const deleteAllMarkers = (): void => {
             googleMarkers.forEach((googleMarker) => {
-                if (googleMarker !== lastAddedCouple?.marker) {  // Si el marcador no es el último que se ha añadido...
-                    googleMarker.setMap(null);                   // Lo borra
+                if (googleMarker !== lastAddedCouple?.marker) {  
+                    googleMarker.setMap(null);                   
                 }
             });
 
@@ -333,7 +331,7 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
             markers.filter(m => m.webId === session.info.webId!
                 && props.globalFilterCategories.includes(m.category)
                 && m.name.includes(props.globalFilterName)).forEach((marker) => {
-                    generateMarker(parseMarker(marker), marker.id); // Lo parsea y lo añade al mapa
+                    generateMarker(parseMarker(marker), marker.id); 
                 })
         }
 
@@ -341,7 +339,7 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
             markers.filter(m => m.webId !== session.info.webId!
                 && props.globalFilterCategories.includes(m.category)
                 && m.name.includes(props.globalFilterName)).forEach((marker) => {
-                    generateMarker(parseMarker(marker), marker.id); // Lo parsea y lo añade al mapa
+                    generateMarker(parseMarker(marker), marker.id); 
                 })
         }
 
@@ -374,13 +372,13 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
                         location: coordinate
                     },
                     (results, status) => {
-                        if (status === google.maps.GeocoderStatus.OK) {                     // Si se obtienen resultados...
-                            const formatedAddress = results[0].formatted_address;           // Retorna el primero
+                        if (status === google.maps.GeocoderStatus.OK) {                     
+                            const formatedAddress = results[0].formatted_address;           
                             resolve(formatedAddress);
-                        } else if (status === google.maps.GeocoderStatus.ZERO_RESULTS) {    // Si no se obtienen resultados...
+                        } else if (status === google.maps.GeocoderStatus.ZERO_RESULTS) {    
                             const formatedAddress = "Sin resultados";
                             resolve(formatedAddress);
-                        } else {                                                            // Si se produce un error...
+                        } else {                                                            
                             reject(new Error(status));
                         }
                     }

@@ -82,7 +82,7 @@ const FriendsList = (props: FriendProps) => {
    * @param webId the new friend's id
    */
   const handleRemoveFriend = (webId: string) => {
-    deleteFriendByWebId(session.info.webId!, webId);
+    deleteFriendByWebId(session.info.webId!, webId).catch(error => console.error("Unable to delete friend"));
     setFriendList(friends.filter(friend => friend.webId !== webId))
     props.showDeletedFriend!();
   };
@@ -126,6 +126,7 @@ const FriendsList = (props: FriendProps) => {
           {showAddFriendForm ? (
             <div>
               <AddFriendForm onAddFriend={handleAddFriend} onCancel={handleCancel} />
+              {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
             </div>
           ) : (
             <div className='add-friend-container'>
