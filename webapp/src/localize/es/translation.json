@@ -100,6 +100,43 @@
         "contributions": "Contribuciones totales: ",
         "achievement": "Logros",
         "locked": "Logro a desbloquear",
-        "unlocked": "Logro desbloqueado"
+        "unlocked": "Logro desbloqueado",
+        "numAch": "Total de logros conseguidos: "
+    },
+    "Achievement":{
+        "logroLvl1": {
+            "title": "El Novato",
+            "description": "¡Necesitas llegar al nivel 1 para conseguir este logro!"
+        }, 
+        "logroLvl10": {
+            "title": "Solo empezando",
+            "description": "¡Necesitas llegar al nivel 10 para conseguir este logro!"
+        }, 
+        "logroLvl50": {
+            "title": "A mitad del camino",
+            "description": "¡Necesitas llegar al nivel 50 para conseguir este logro!"
+        }, 
+        "logroLvl100": {
+            "title": "La Bestia Absoluta",
+            "description": "¡Necesitas llegar al nivel 100 para conseguir este logro!"
+        }, 
+        "logroCont1": {
+            "title": "Pequeños pasos",
+            "description": "¡Necesitas hacer 1 contribución para conseguir este logro!"
+        }, 
+        "logroCont10": {
+            "title": "Cada grano de arena cuenta",
+            "description": "¡Necesitas hacer 10 contribuciones para conseguir este logro!"
+        },
+        "logroCont50": {
+            "title": "¡¿Ya 50?!",
+            "description": "¡Necesitas hacer 50 contribuciones para conseguir este logro!"
+        },
+        "logroCont100": {
+            "title": "El Contribuidor",
+            "description": "¡Necesitas hacer 100 contribuciones para conseguir este logro!"
+        },
+        "statusU": "¡Has conseguido este logro!",
+        "statusL": "¡Aún no tienes este logro!"
     }
 }

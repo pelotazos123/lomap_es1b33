@@ -24,5 +24,6 @@ export interface IUser {
   level: number,
   experience: number,
   numberOfContributions: number,
-  badgesObtained: string[]
+  badgesObtained: string[],
+  loading?: boolean
 }

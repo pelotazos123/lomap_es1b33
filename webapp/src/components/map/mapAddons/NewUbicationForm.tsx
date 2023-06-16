@@ -48,7 +48,7 @@ const NewUbicationForm: React.FC<INewUbicationFormProps> = (props) => {
 
     showLocationAdded();
 
-    let res = await GainExperience(session.info.webId!);
+    const res = await GainExperience(session.info.webId!);
 
     if (res[0])
       props.showLevelUpNoti();
@@ -75,7 +75,6 @@ const NewUbicationForm: React.FC<INewUbicationFormProps> = (props) => {
     <>
       <Slide direction="left" in={props.formOpened} >
         <form name="newUbication" onSubmit={handleSubmit}>
-         {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
           <Stack alignItems="right" sx={{ margin: 2 }}>
             <TextField
               required

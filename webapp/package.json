@@ -27,7 +27,7 @@
     "axios": "^1.3.6",
     "bootstrap": "^5.2.3",
     "compression": "^1.7.4",
-    "crypto": "^1.0.1",
+    "crypto-browserify": "^3.12.0",
     "dotenv": "^16.0.3",
     "enzyme": "^3.11.0",
     "express": "^4.18.2",
@@ -60,12 +60,6 @@
     "eject": "react-scripts eject",
     "prod": "ts-node-dev ./server.ts"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -85,6 +79,10 @@
     "@types/jest": "^29.2.5",
     "@types/puppeteer": "^5.4.4",
     "@types/uuid": "^9.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/parser": "^5.59.11",
+    "eslint": "^8.42.0",
+    "eslint-plugin-react": "^7.32.2",
     "expect-puppeteer": "^6.0.2",
     "jest-cucumber": "^3.0.1",
     "jest-puppeteer": "^6.0.3",

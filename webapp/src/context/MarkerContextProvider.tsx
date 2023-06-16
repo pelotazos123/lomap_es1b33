@@ -42,7 +42,7 @@ export const markerReducer = (state: IPMarker[], action: MarkerActions): IPMarke
         case Types.DELETE_MARKER:
             return state.filter(m => m.id !== action.payload.id)
         case Types.UPDATE_MARKER:
-            let markers = state.filter(m => m.id !== action.payload.id)
+            const markers = state.filter(m => m.id !== action.payload.id)
             return [action.payload.marker, ...markers]
         default:
             return state

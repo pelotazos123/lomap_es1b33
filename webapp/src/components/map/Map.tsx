@@ -193,7 +193,7 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
             });
 
             marker.addListener('click', () => {                             
-                let detailedMarker = markers.find(marker => marker.id === id);
+                const detailedMarker = markers.find(marker => marker.id === id);
                 if (detailedMarker) {
                     props.setMarkerShown(detailedMarker);
                     props.setDetailedIWOpen(true);
@@ -252,7 +252,7 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
          * las coordenadas en el formulario
          */
         useEffect(() => {
-            let location = new google.maps.LatLng(props.globalLat, props.globalLng);      
+            const location = new google.maps.LatLng(props.globalLat, props.globalLng);      
             
             coordinateToAddress(location).then(address => props.setGlobalAddress(address)).catch(error => console.error(error)); 
 
@@ -267,7 +267,7 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
          * a los listener del último marcador
          */
         const updateMarkerListeners = () => {
-            let updatedMarker = markers.find(marker => marker.id === props.nextID.current)!; 
+            const updatedMarker = markers.find(marker => marker.id === props.nextID.current)!; 
             generateMarker(parseMarker(updatedMarker), updatedMarker.id);                    
             props.nextID.current = uuid();                                             
 

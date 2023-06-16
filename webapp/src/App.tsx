@@ -48,7 +48,7 @@ function App(): React.JSX.Element {
     }, []);
 
     session.onLogin(async () => {
-      let markers = await readFriendMarkers(session.info.webId!);
+      const markers = await readFriendMarkers(session.info.webId!);
       (await readMarkers(session.info.webId!)).forEach(m => markers.push(m));
       prepareUserInfo();
       setMarkers(markers);
@@ -63,7 +63,7 @@ function App(): React.JSX.Element {
       let info = await readUserInfo(session.info.webId!);
 
       if (info == null){
-        let basicBadges: string[] = [];
+        const basicBadges: string[] = [];
  
         const newUser: IUser = {
           level: 0,

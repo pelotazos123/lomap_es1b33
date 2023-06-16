@@ -57,7 +57,7 @@ function LoginForm(props: LoginProps): React.JSX.Element {
                 disabled={disabled}
               />
 
-              <LoginButton oidcIssuer={oidcIssuer} redirectUrl={process.env.NODE_ENV == "development" ? "http://localhost:3000" : process.env.REACT_APP_HOST!}>
+              <LoginButton oidcIssuer={oidcIssuer} redirectUrl={process.env.NODE_ENV === "development" ? "http://localhost:3000" : process.env.REACT_APP_HOST!}>
                 <Button variant="contained" sx={{ color:'white', width: '17.25em', margin: '0.5em', backgroundColor: 'darkgoldenrod', 
                   ":hover": {
                     bgcolor: 'darkcyan',
