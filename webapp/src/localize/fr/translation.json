@@ -99,7 +99,20 @@
         "contributions": "Cotisations totales: ",
         "achievement": "Réussite",
         "locked": "Réussite à débloquer",
-        "unlocked": "Réussite dévérouillé"
+        "unlocked": "Réussite dévérouillé",
+        "numAch": "Total des réalisations obtenues: "
+    },
+    "Achievement":{
+        "logroLvl1": "Vous devez atteindre le niveau 1 pour obtenir ce succès!",
+        "logroLvl10": "Vous devez atteindre le niveau 10 pour obtenir ce succès!",
+        "logroLvl50": "Vous devez atteindre le niveau 50 pour obtenir ce succès!",
+        "logroLvl100": "Vous devez atteindre le niveau 100 pour obtenir ce succès!",
+        "logroCont1": "Vous devez faire 1 contribution pour obtenir ce succès!",
+        "logroCont10": "Vous devez faire 10 contributions pour obtenir ce succès!",
+        "logroCont50": "Vous devez faire 50 contributions pour obtenir ce succès!",
+        "logroCont100": "Vous devez faire 100 contributions pour obtenir ce succès!",
+        "statusU": "Vous avez mérité ce succès!",
+        "statusL": "Vous n'avez pas encore ce succès!"
     }
 }
         

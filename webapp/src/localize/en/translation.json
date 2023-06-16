@@ -100,6 +100,19 @@
         "contributions": "Total contributions: ",
         "achievement": "Achievements",
         "locked": "Achievement to unlock",
-        "unlocked": "Achievement unlocked"
+        "unlocked": "Achievement unlocked",
+        "numAch": "Total achievements unlocked: "
+    },
+    "Achievement":{
+        "logroLvl1": "You need to reach level 1 to get this award!",
+        "logroLvl10": "You need to reach level 10 to get this award!",
+        "logroLvl50": "You need to reach level 50 to get this award!",
+        "logroLvl100": "You need to reach level 100 to get this award!",
+        "logroCont1": "You need to make 1 contribution to get this award!",
+        "logroCont10": "You need to make 10 contributions to get this award!",
+        "logroCont50": "You need to make 50 contributions to get this award!",
+        "logroCont100": "You need to make 100 contributions to get this award!",
+        "statusU": "You have this achievement!",
+        "statusL": "You don't have this achievement!"
     }
 }
