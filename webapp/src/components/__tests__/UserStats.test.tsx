@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, waitFor, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import UserStats from '../stats/UserStats';
 
 jest.mock('../../helpers/SolidHelper', () => ({
@@ -15,8 +15,7 @@ describe('UserStats', () => {
             badgesObtained: ['logroLvl1'],
             level: 5,
             experience: 250,
-            numberOfContributions: 10,
-            loading: true
+            numberOfContributions: 10
         };
 
         render(<UserStats {...initialProps} />);

@@ -84,7 +84,6 @@ const MapView: React.FC<MapviewProps> = ({showLocationAddedNoti, showLocationDel
     };
 
     session.onLogout(() => {
-        setGlobalMode('E');
         setFormOpened(false);
         setDetailedIWOpen(false);
     });
@@ -121,6 +120,7 @@ const MapView: React.FC<MapviewProps> = ({showLocationAddedNoti, showLocationDel
                 <Stack direction={'row'} alignItems={'center'}>
                 <Select
                     value={globalMode}
+                    defaultValue={""}
                     onChange={(e) => {
                         setGlobalMode(e.target.value)
                         changeFriendsMap(e.target.value);

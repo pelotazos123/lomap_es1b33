@@ -22,8 +22,6 @@ const UserStats: React.FC<IUser> = (props) => {
 
     const { session } = useSession();
 
-    let arrayRandom = new Uint32Array(100);
-
     useEffect(() => {
       if (session.info.isLoggedIn)
           searchPersonData(session.info.webId)
@@ -36,7 +34,7 @@ const UserStats: React.FC<IUser> = (props) => {
 
     async function updateInfo(){
       setLoading(true)
-      let newInfo = await readUserInfo(session.info.webId!);
+      const newInfo = await readUserInfo(session.info.webId!);
       if ((newInfo as unknown as IUser).badgesObtained.length)
       setInfo(newInfo!);
       setLoading(false)
@@ -66,7 +64,11 @@ const UserStats: React.FC<IUser> = (props) => {
               color: "white"
           }}
       >
-        {(!isLoading || !props.loading) && info.badgesObtained!==undefined ? 
+        {((props.loading ?? isLoading)) || props.badgesObtained===undefined ? 
+          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <img src="/img/loading-gif2.gif" alt="loading-spinner" data-testid="img-spinner" style={{display: 'block'}}/>
+          </div>
+          :
           <>
             <Box p={3}>
               <Box sx={{textAlign: 'left'}}>
@@ -120,10 +122,6 @@ const UserStats: React.FC<IUser> = (props) => {
             </Box>
             <BadgesView imageToShow={imageToShow} setBadgeWindowOpen={setBadgeWindowOpen} isBadgeWindowOpen={isBadgeWindowOpen}></BadgesView>
           </>
-          :
-          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-            <img src="/img/loading-gif2.gif" alt="loading-spinner" data-testid="img-spinner" style={{display: 'block'}}/>
-          </div>
         }
       </Container>
     );

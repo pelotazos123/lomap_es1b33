@@ -35,7 +35,7 @@ const FriendsList = (props: FriendProps) => {
       await loadPersonData();
       setLoading(false);
     }
-  };
+  }
 
   /**
    * Brings the user's friends' web ids to the PersonData object

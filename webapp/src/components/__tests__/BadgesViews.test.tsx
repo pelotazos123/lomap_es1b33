@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import BadgesView from '../stats/BadgesView';
 
 describe('BadgesView', () => {
@@ -31,8 +31,10 @@ describe('BadgesView', () => {
     render(<BadgesView {...initialProps} />);
 
     const badgeStatus = screen.getByText('Achievement.statusL');
-    const badgeDescription = screen.getByText('Achievement.badge2');
+    const badgeTitle = screen.getByText('Achievement.badge2.title');
+    const badgeDescription = screen.getByText('Achievement.badge2.description');
     expect(badgeStatus).toBeInTheDocument();
     expect(badgeDescription).toBeInTheDocument();
+    expect(badgeTitle).toBeInTheDocument();
   });
 });

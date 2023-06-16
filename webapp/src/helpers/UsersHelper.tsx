@@ -8,12 +8,12 @@ export const allAchievements: string[] = ["logroLvl1Dis", "logroLvl10Dis", "logr
      "logroCont1Dis", "logroCont10Dis", "logroCont50Dis", "logroCont100Dis"]
   
 export async function GainExperience (webId: string) {
-    let info = await readUserInfo(webId);
+    const info = await readUserInfo(webId);
 
     let newExp = (info! as IUser).experience + EXPERIENCE_OBTAINED;
-    let newContributions = (info! as IUser).numberOfContributions + 1;
+    const newContributions = (info! as IUser).numberOfContributions + 1;
     let newLvl = (info! as IUser).level;
-    let badges = (info! as IUser).badgesObtained;
+    const badges = (info! as IUser).badgesObtained;
 
     let hasLvlUp = false;
     let newAchievement = false;
@@ -24,7 +24,7 @@ export async function GainExperience (webId: string) {
         hasLvlUp = true;
     }
 
-    let newRes = CheckAchievements(newLvl, newContributions, badges, hasLvlUp, newAchievement);
+    const newRes = CheckAchievements(newLvl, newContributions, badges, hasLvlUp, newAchievement);
 
     newAchievement = newRes[0]
 
@@ -43,13 +43,13 @@ export async function GainExperience (webId: string) {
 function CheckAchievements(lvl: number, nCont: number, badges: string[], hasLvlUp: boolean, newAchievement: boolean): any[] {
     let newBadges = badges;
     if (hasLvlUp){
-        let res = CheckLevels(lvl, newBadges)
+        const res = CheckLevels(lvl, newBadges)
         if (res[0]){
             newAchievement = true
             newBadges = res[1]
         }
     }
-    let resA = CheckContributions(nCont, newBadges)
+    const resA = CheckContributions(nCont, newBadges)
     if (resA[0]){
         newAchievement = true
         newBadges = resA[1]
@@ -58,7 +58,6 @@ function CheckAchievements(lvl: number, nCont: number, badges: string[], hasLvlU
 }
 
 function CheckLevels(level: number, newBadges: string[]): any[]{
-    let index: number;
     let newBadge: string;
     let newAchievement = false;
     switch(level){
@@ -110,6 +109,8 @@ function CheckContributions(nCont: number, newBadges: string[]): any[]{
         default:
             newBadge = "";
       }
+
+      newBadges.push(newBadge);
 
     return [newAchievement, newBadges];
 }

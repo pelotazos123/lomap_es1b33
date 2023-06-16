@@ -60,12 +60,6 @@
     "eject": "react-scripts eject",
     "prod": "ts-node-dev ./server.ts"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",

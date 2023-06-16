@@ -1,7 +1,5 @@
 
 const cloud_name = process.env.REACT_APP_CLOUD_NAME;
-const preset = process.env.REACT_APP_PRESET;
-
 
 export const fileUpload = async (file: File): Promise<string | undefined> => {
     const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`
@@ -25,7 +23,6 @@ export const fileUpload = async (file: File): Promise<string | undefined> => {
         return data.url;
 
     } catch (error) {
-        // console.error(error);
         console.error("Error uploading the file: " + file.name)
     }
 };

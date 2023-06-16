@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { IPMarker } from '../../shared/SharedTypes';
 import DetailedUbicationView from '../map/mapAddons/DetailedInfoWindow';
-//jest.mock('../../../helpers/SolidHelper');
 
 const mockMarkerShown: IPMarker = {
     id: "1",

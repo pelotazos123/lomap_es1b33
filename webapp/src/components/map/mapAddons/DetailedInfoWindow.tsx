@@ -27,7 +27,7 @@ const DetailedUbicationView: React.FC<DetailedUbicationViewProps> = (props) => {
   const [isRatingOpen, setRatingOpen] = useState<boolean>(false);
   const [urlImage, setUrlImage] = useState<string>();
   const [author] = useState(session.info.webId?.substring(8).split('.')[0]!)
-  let arrayRandom = new Uint32Array(100);
+  const arrayRandom = new Uint32Array(100);
 
   const { t } = useTranslation("translation");
     
@@ -41,7 +41,7 @@ const DetailedUbicationView: React.FC<DetailedUbicationViewProps> = (props) => {
     }
     
     setComment(newComment)
-    let marker = markers.find(marker => marker.id = props.markerShown.id)!;
+    const marker = markers.find(marker => marker.id = props.markerShown.id)!;
     marker.ratings.push(rating);
     marker.comments.push(newComment);
 
@@ -71,11 +71,11 @@ const DetailedUbicationView: React.FC<DetailedUbicationViewProps> = (props) => {
   }
 
   const getRatingMean = () => {
-    let sum = props.markerShown.ratings
+    const sum = props.markerShown.ratings
       .map(n => parseInt(n.toString()))
       .reduce((previous, current) => current += previous, 0);
-    let total = props.markerShown.ratings.length;
-    let result = sum / total;
+    const total = props.markerShown.ratings.length;
+    const result = sum / total;
 
     return result;
   }
