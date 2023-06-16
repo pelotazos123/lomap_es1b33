@@ -188,7 +188,7 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
         const generateMarker = (notAddedMarker: IMarker, id: string): ICouple => {
             const marker: GoogleMarker = new google.maps.Marker({
                 position: notAddedMarker.latLng,                             
-                icon: "marker.png",                                     
+                icon: "/img/marker.png",                                     
                 map: map                                                     
             });
 
@@ -223,7 +223,7 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
          */
         const addHomeMarker = (location: GoogleLatLng): void => {
             const homeMarkerConst: GoogleMarker = new google.maps.Marker({ 
-                icon: "home.png",
+                icon: "/img/home.png",
                 position: location,
                 map: map
             });
@@ -484,7 +484,7 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
 
         return (
                 <div ref={ref} className="map" style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                    <img src="loading-gif2.gif" alt="loading-map" style={{display: 'block'}}/>
+                    <img src="/img/loading-gif2.gif" alt="loading-map" style={{display: 'block'}}/>
                 </div>
         );
     };

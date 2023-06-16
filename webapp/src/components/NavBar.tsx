@@ -14,9 +14,9 @@ type propsNav = {
 }
 
 export const NavBar: React.FC<propsNav> = (props) => {
-    const UK_URL = "/uk-flag.png";
-    const ES_URL = "/es-flag.png";
-    const FR_URL = "/fr-flag.png";
+    const UK_URL = "/img/uk-flag.png";
+    const ES_URL = "/img/es-flag.png";
+    const FR_URL = "/img/fr-flag.png";
 
     const DEFAULT_USERPIC = "/no-profile-pic.png";
 
@@ -87,7 +87,7 @@ export const NavBar: React.FC<propsNav> = (props) => {
                     alignItems='center'
                     justifyContent='left'
                     >
-                        <Link to="/"><img src="/logo-no-background.png" className="App-logo" alt="logo" height="60" /></Link>
+                        <Link to="/"><img src="/img/logo-no-background.png" className="App-logo" alt="logo" height="60" /></Link>
                         <Link to="/map">{t("NavBar.map" as const)}</Link>
                         {session.info.isLoggedIn ? <>
                             <Link to="/ubications">{t("NavBar.ubic")}</Link>
@@ -117,7 +117,7 @@ export const NavBar: React.FC<propsNav> = (props) => {
                         margin="1em">
 
                             <Link to="/userstats">
-                                <img src="statts.png" alt="accountStats" height={35} width={35}/>
+                                <img src="/img/statts.png" alt="accountStats" height={35} width={35}/>
                             </Link>
                             <Box component="p" color={'white'}>
                                 {personData?.name}

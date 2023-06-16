@@ -1,23 +1,28 @@
 import { Box, Container, Typography} from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { IUser } from '../shared/SharedTypes';
+import { IUser } from '../../shared/SharedTypes';
 import { useSession } from '@inrupt/solid-ui-react';
-import { findPersonData, readUserInfo } from '../helpers/SolidHelper';
-import { MarkerContext } from '../context/MarkerContextProvider';
+import { findPersonData, readUserInfo } from '../../helpers/SolidHelper';
+import { MarkerContext } from '../../context/MarkerContextProvider';
+import BadgesView from './BadgesView';
+import { allAchievements } from '../../helpers/UsersHelper';
 
 const UserStats: React.FC<IUser> = (props) => {
     const [info, setInfo] = useState<IUser>(props);
     const [username, setUsername] = useState<string>();
     const { state: markers } = useContext(MarkerContext);
     const [isLoading, setLoading] = useState<boolean>(false);
+    const [isBadgeWindowOpen, setBadgeWindowOpen] = useState<boolean>(false);
+    const [imageToShow, setImageToShow] = useState<string>();
+
+    const achievements: string[] = allAchievements;
 
     const { t } = useTranslation("translation");
 
     const { session } = useSession();
 
     let arrayRandom = new Uint32Array(100);
-
 
     useEffect(() => {
       if (session.info.isLoggedIn)
@@ -32,8 +37,8 @@ const UserStats: React.FC<IUser> = (props) => {
     async function updateInfo(){
       setLoading(true)
       let newInfo = await readUserInfo(session.info.webId!);
+      if ((newInfo as unknown as IUser).badgesObtained.length)
       setInfo(newInfo!);
-      console.log(newInfo, "new info")
       setLoading(false)
     }
 
@@ -86,17 +91,36 @@ const UserStats: React.FC<IUser> = (props) => {
                 <Typography variant="h4" sx={{ mb: 3, textAlign: 'center'}}>
                   {t("Stats.achievement")}
                 </Typography>   
-                <Box>
-                  {info.badgesObtained.map((image) => {
-                    return <img src={"/"+image+".png"} key={""+crypto.getRandomValues(arrayRandom)} title={image.includes("Dis") ? t("Stats.locked")! : t("Stats.press")!} width={200}/>
-                  })}
+                <Box p={4}>
+                  { achievements.map(image => {
+
+                      if (info.badgesObtained.includes(image.substring(0, image.length - 3))){
+                        return <img src={"/img/achievements/"+image.substring(0, image.length - 3)+".png"} key={""+crypto.getRandomValues(arrayRandom)} 
+                            title={t("Stats.unlocked")!} width={180} style={{cursor: 'pointer'}}
+                              onClick={() => {
+                                setBadgeWindowOpen(true)
+                                setImageToShow(image.substring(0, image.length - 3))
+                              }}/>
+
+                      } else{
+                        return <img src={"/img/achievements/"+image+".png"} key={""+crypto.getRandomValues(arrayRandom)} 
+                            title={t("Stats.locked")!} width={180} style={{cursor: 'pointer'}}
+                              onClick={() => {
+                                setBadgeWindowOpen(true)
+                                setImageToShow(image)
+                              }}/>
+
+                      }
+                    })
+                  }
                 </Box>
               </Box>
             </Box>
+            <BadgesView imageToShow={imageToShow!} setBadgeWindowOpen={setBadgeWindowOpen} isBadgeWindowOpen={isBadgeWindowOpen}></BadgesView>
           </>
           :
           <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-            <img src="loading-gif2.gif" alt="loading-spinner" data-testid="img-spinner" style={{display: 'block'}}/>
+            <img src="/img/loading-gif2.gif" alt="loading-spinner" data-testid="img-spinner" style={{display: 'block'}}/>
           </div>
         }
       </Container>

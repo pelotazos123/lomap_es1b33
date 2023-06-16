@@ -100,6 +100,6 @@
         "contributions": "Contribuciones totales: ",
         "achievement": "Logros",
         "locked": "Logro a desbloquear",
-        "press": "Presioname"
+        "unlocked": "Logro desbloqueado"
     }
 }

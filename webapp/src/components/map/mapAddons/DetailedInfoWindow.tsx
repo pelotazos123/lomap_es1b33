@@ -44,9 +44,6 @@ const DetailedUbicationView: React.FC<DetailedUbicationViewProps> = (props) => {
     let marker = markers.find(marker => marker.id = props.markerShown.id)!;
     marker.ratings.push(rating);
     marker.comments.push(newComment);
-    console.log(marker.owner)
-    console.log(marker.webId)
-
 
     dispatch({ type: Types.UPDATE_MARKER, payload: { id: marker.id, marker: marker } });
     notify(t("DetailedInfo.addR"), 'success')

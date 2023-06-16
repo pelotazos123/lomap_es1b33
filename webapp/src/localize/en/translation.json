@@ -100,6 +100,6 @@
         "contributions": "Total contributions: ",
         "achievement": "Achievements",
         "locked": "Achievement to unlock",
-        "press": "Press me"
+        "unlocked": "Achievement unlocked"
     }
 }

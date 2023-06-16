@@ -14,7 +14,7 @@ import { MarkerContext, Types } from './context/MarkerContextProvider';
 import AboutUs from './components/AboutUs';
 import NotificationsSystem, { atalhoTheme, setUpNotifications, useNotifications } from "reapop";
 import i18n from './localize/i18n';
-import UserStats from './components/UserStats';
+import UserStats from './components/stats/UserStats';
 import { useTranslation } from 'react-i18next';
 
 setUpNotifications({
@@ -63,10 +63,10 @@ function App(): React.JSX.Element {
       let info = await readUserInfo(session.info.webId!);
 
       if (info == null){
-        let basicBadges = ["logroLvl1Dis", "logroLvl10Dis", "logroLvl50Dis", "logroLvl100Dis"]
-
+        let basicBadges: string[] = [];
+ 
         const newUser: IUser = {
-          level: 1,
+          level: 0,
           experience: 0,
           numberOfContributions: 0,
           badgesObtained: basicBadges
@@ -76,7 +76,6 @@ function App(): React.JSX.Element {
       }
       info = await readUserInfo(session.info.webId!);
       setInfo(info!)
-      console.log(info, "hola")
     }
 
     function setMarkers(markers: IPMarker[]) {

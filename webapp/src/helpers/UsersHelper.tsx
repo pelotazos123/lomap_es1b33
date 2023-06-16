@@ -3,6 +3,9 @@ import { readUserInfo, saveUserInfo } from "./SolidHelper";
 
 const EXPERIENCE_REQUIREMENT = 100;
 const EXPERIENCE_OBTAINED = 20;
+
+export const allAchievements: string[] = ["logroLvl1Dis", "logroLvl10Dis", "logroLvl50Dis", "logroLvl100Dis",
+     "logroCont1Dis", "logroCont10Dis", "logroCont50Dis", "logroCont100Dis"]
   
 export async function GainExperience (webId: string) {
     let info = await readUserInfo(webId);
@@ -42,14 +45,15 @@ function CheckAchievements(lvl: number, nCont: number, badges: string[], hasLvlU
     if (hasLvlUp){
         let res = CheckLevels(lvl, newBadges)
         if (res[0]){
-            console.log("logroo")
             newAchievement = true
             newBadges = res[1]
         }
     }
-    // let resA = CheckContributions(nCont, newBadges)
-    // if (resA[0])
-    //     newAchievement = true
+    let resA = CheckContributions(nCont, newBadges)
+    if (resA[0]){
+        newAchievement = true
+        newBadges = resA[1]
+    }
     return [newAchievement, newBadges]
 }
 
@@ -59,64 +63,53 @@ function CheckLevels(level: number, newBadges: string[]): any[]{
     let newAchievement = false;
     switch(level){
         case (1):
-            index = newBadges.indexOf("logroLvl1Dis");
             newBadge = "logroLvl1"
             newAchievement = true
             break;
         case (10):
-            index = newBadges.indexOf("logroLvl10Dis");
             newBadge = "logroLvl10"
             newAchievement = true
             break;
-        case (25):
-            index = newBadges.indexOf("logroLvl25Dis");
-            newBadge = "logroLvl25"
-            newAchievement = true
-            break;
         case (50):
-            index = newBadges.indexOf("logroLvl50Dis");
             newBadge = "logroLvl50"
             newAchievement = true
             break;
         case (100):
-            index = newBadges.indexOf("logroLvl100Dis");
             newBadge = "logroLvl100"
             newAchievement = true
             break;
         default:
-            index = -1;
             newBadge = "";
     }
-    if (index !== -1)
-        newBadges[index] = newBadge;
+    
+    newBadges.push(newBadge);
 
     return [newAchievement, newBadges];
 }
 
 function CheckContributions(nCont: number, newBadges: string[]): any[]{
-    let index: number;
     let newBadge: string;
     let newAchievement = false;
     switch(nCont){
         case (1):
-          console.log("baby steps");
-          newAchievement = true
-          break;
+            newBadge = "logroCont1"
+            newAchievement = true
+            break;
         case (10):
-          console.log("regular user");
-          newAchievement = true
-          break;
+            newBadge = "logroCont10"
+            newAchievement = true
+            break;
         case (50):
-          console.log("quite awesome");
-          newAchievement = true
-          break;
+            newBadge = "logroCont50"
+            newAchievement = true
+            break;
         case (100):
-          console.log("the biggest one");
-          newAchievement = true
-          break;
+            newBadge = "logroCont100"
+            newAchievement = true
+            break;
+        default:
+            newBadge = "";
       }
-    // if (index != -1)
-    //     newBadges[index] = newBadge;
 
     return [newAchievement, newBadges];
 }

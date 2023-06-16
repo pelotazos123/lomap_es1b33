@@ -36,7 +36,6 @@ export interface PersonData {
 }
 
 export async function readMarkers(webId: string) {
-    console.log("entro a leer")
     let fileURL = `${parseURL(webId)}public/lomap/markers.json`;
     let markers = await readMarkersFromFile(fileURL);
 
@@ -76,7 +75,6 @@ async function readInfoFromFile(fileUrl: string){
 
 async function readMarkersFromFile(fileURL: string) {
     let markers: IPMarker[] = [];
-    console.log("empiezo a leer")
     try {
         await getFile(fileURL, { fetch: fetch })
             .then(async (file) => { markers = JSON.parse(await file.text()); })
@@ -120,13 +118,11 @@ async function saveInfoToFile(info: IUser, fileURL: string) {
 }
 
 export async function saveMarkers(markers: IPMarker[], webId: string) {
-    console.log("entro a guardar")
     let fileURL = `${parseURL(webId)}public/lomap/markers.json`;
     await saveMarkersToFile(markers, fileURL);
 };
 
 async function saveMarkersToFile(markers: IPMarker[], fileURL: string) {
-    console.log("empiezo a guardar")
     const blob = new Blob([(new TextEncoder()).encode(JSON.stringify(markers))], {
         type: "application/json;charset=utf-8"
     });

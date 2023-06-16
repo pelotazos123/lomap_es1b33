@@ -70,7 +70,6 @@ const MapView: React.FC<MapviewProps> = ({showLocationAddedNoti, showLocationDel
 
     useEffect(() => {
         if (session.info.isLoggedIn) {
-            console.log("guardo");
             saveMarkers(markers.filter((marker) => marker.webId === session.info.webId!),
                 session.info.webId!).catch(error => console.error("Unable to save markers"));
         }        

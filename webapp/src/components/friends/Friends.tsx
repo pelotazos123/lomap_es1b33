@@ -108,7 +108,7 @@ const FriendsList = (props: FriendProps) => {
       <h2>{t("Friends.main")}</h2>
       { isLoading ?
       <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-        <img src="loading-gif2.gif" alt="loading-spinner" data-testid="img-spinner" style={{display: 'block'}}/>
+        <img src="/img/loading-gif2.gif" alt="loading-spinner" data-testid="img-spinner" style={{display: 'block'}}/>
       </div>
       :
       <div>
