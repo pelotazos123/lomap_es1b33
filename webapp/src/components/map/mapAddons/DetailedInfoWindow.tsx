@@ -119,7 +119,6 @@ const DetailedUbicationView: React.FC<DetailedUbicationViewProps> = (props) => {
           </Box>
           <Dialog onClose={() => setRatingOpen(false)} open={isRatingOpen}>
             <form name="newRating" onSubmit={handlSubmit}>
-              {/*eslint-disable-next-line @typescript-eslint/no-misused-promises*/}
               <Stack direction='column' sx={{ width: '30em', padding: '1em' }}>
                 <Stack direction='row'>
                   <h1 style={{ margin: '0' }}>{t("DetailedInfo.rate")}</h1>
@@ -149,7 +148,6 @@ const DetailedUbicationView: React.FC<DetailedUbicationViewProps> = (props) => {
                   }
                   inputProps={{accept:"image/png, image/jpeg, image/jpg" }}
                  />
-                 {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
                 <Button variant="contained" type="submit" data-testid="button-submit"
                 sx={{ marginTop: '0.5em', color:'lightblue', border: '2px solid'}}>
                   {t("DetailedInfo.acept")} 

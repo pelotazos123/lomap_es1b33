@@ -126,7 +126,6 @@ const FriendsList = (props: FriendProps) => {
           {showAddFriendForm ? (
             <div>
               <AddFriendForm onAddFriend={handleAddFriend} onCancel={handleCancel} />
-              {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
             </div>
           ) : (
             <div className='add-friend-container'>
