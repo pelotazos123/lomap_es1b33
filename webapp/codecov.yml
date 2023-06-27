@@ -1,3 +1,0 @@
-ignore: 
-  - "**/MarkerContextProvider.ts"
-  - "**/SolidHelper.ts"

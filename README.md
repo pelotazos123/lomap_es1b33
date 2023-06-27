@@ -10,7 +10,7 @@ ___
 </div></h1>
 <p align="center">
 	<a href="https://pelotazos123.github.io/lomap_es1b33/"><strong>Project documentation »</strong></a>
-	<a href="https://lomap-es1b33.westeurope.cloudapp.azure.com/"><strong>Try the app here (Currently unavailable for saving azure credits)<strong></a>
+	<a href="https://lomap-es1b33.westeurope.cloudapp.azure.com/"><strong>Try the app here<strong></a>
 </p>
 ___
 

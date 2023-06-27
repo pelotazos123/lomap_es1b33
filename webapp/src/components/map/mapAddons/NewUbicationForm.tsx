@@ -48,14 +48,14 @@ const NewUbicationForm: React.FC<INewUbicationFormProps> = (props) => {
 
     showLocationAdded();
 
+    restartForm();
+
     const res = await GainExperience(session.info.webId!);
 
     if (res[0])
       props.showLevelUpNoti();
     if (res[1])
       props.showNewAchievement();
-
-    restartForm();
   }
 
   const showLocationAdded = () => {

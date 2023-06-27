@@ -21,8 +21,13 @@
         "@typescript-eslint",
         "react"
     ],
-    "rules": {
-        "@typescript-eslint/no-misused-promises": "off",
+    "rules": {     
+        "@typescript-eslint/no-misused-promises": [
+            "error",
+            {
+            "checksVoidReturn": false
+            }
+        ],
         "react/react-in-jsx-scope": "off",
         "react/jsx-uses-react": "off",
         "react/prop-types": "off",

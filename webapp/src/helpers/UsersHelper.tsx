@@ -80,8 +80,9 @@ function CheckLevels(level: number, newBadges: string[]): any[]{
         default:
             newBadge = "";
     }
-    
-    newBadges.push(newBadge);
+
+    if (newBadge !== "")
+        newBadges.push(newBadge);
 
     return [newAchievement, newBadges];
 }
@@ -109,8 +110,9 @@ function CheckContributions(nCont: number, newBadges: string[]): any[]{
         default:
             newBadge = "";
       }
-
-      newBadges.push(newBadge);
+      
+      if (newBadge !== "")
+        newBadges.push(newBadge);
 
     return [newAchievement, newBadges];
 }
