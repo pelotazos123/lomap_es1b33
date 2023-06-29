@@ -2,7 +2,7 @@ import './App.css';
 import HomeView from './components/HomeView';
 import { NavBar } from './components/NavBar';
 import { IPMarker, IUser } from './shared/SharedTypes';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { useSession } from '@inrupt/solid-ui-react';
 import { loadMapApi } from './utils/GoogleMapsUtils';
 import FriendsList from './components/friends/Friends';
@@ -38,6 +38,8 @@ function App(): React.JSX.Element {
 
     const { t } = useTranslation('translation')
 
+    const navigate = useNavigate();
+
     const { notify } = useNotifications();
 
     useEffect(() => {
@@ -57,6 +59,14 @@ function App(): React.JSX.Element {
     session.onLogout(async () => {
       setMarkers([])
       window.location.reload();
+    })
+
+    session.onSessionRestore(async () => {
+      const markers = await readFriendMarkers(session.info.webId!);
+      (await readMarkers(session.info.webId!)).forEach(m => markers.push(m));
+      prepareUserInfo();
+      setMarkers(markers);
+      navigate('/map')
     })
 
     async function prepareUserInfo(){

@@ -12,7 +12,7 @@ import "./localize/i18n";
 ReactDOM.render(
   <React.StrictMode>
     <NotificationsProvider>
-      <SessionProvider session-id="login">
+      <SessionProvider session-id="login" restorePreviousSession={true}>
         <MarkerContextProvider>
           <BrowserRouter>
             <App />
