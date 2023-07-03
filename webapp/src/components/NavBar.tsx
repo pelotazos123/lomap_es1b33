@@ -18,7 +18,7 @@ export const NavBar: React.FC<propsNav> = (props) => {
     const ES_URL = "/img/es-flag.png";
     const FR_URL = "/img/fr-flag.png";
 
-    const DEFAULT_USERPIC = "/no-profile-pic.png";
+    const DEFAULT_USERPIC = "/img/no-profile-pic.png";
 
     const { session } = useSession();
     const [open, setOpen] = useState(false);
@@ -56,11 +56,10 @@ export const NavBar: React.FC<propsNav> = (props) => {
 
     function getImg() {
         if (personData){
-            return personData.photo;
-        } else {
-            return DEFAULT_USERPIC;
+            return personData.photo ? personData.photo : DEFAULT_USERPIC
         }
     }
+    
     useEffect(() => {
         if (props.opt)
             i18n.changeLanguage(props.lang).catch(error => console.error(error));

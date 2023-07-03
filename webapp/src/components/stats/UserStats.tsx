@@ -79,10 +79,10 @@ const UserStats: React.FC<IUser> = (props) => {
                   {t("Stats.level")} {info.level}
                 </Typography>
                 <Typography sx={{ color: "#AAA", mb: 3, fontSize: 20 }}>
-                  {t("Stats.experience")} {info.experience}
+                  {t("Stats.experience")} {info.experience + " xp"}
                 </Typography>
                 <Typography sx={{ color: "#AAA", mb: 3, fontSize: 20 }}>
-                  {t("Stats.nextLvl")} {(info.level*100) - info.experience}
+                  {t("Stats.nextLvl")} {(info.level*100) - info.experience + " xp"}
                 </Typography>
                 <Typography sx={{ color: "#AAA", mb: 3, fontSize: 20 }}>
                   {t("Stats.contributions")} {info.numberOfContributions}

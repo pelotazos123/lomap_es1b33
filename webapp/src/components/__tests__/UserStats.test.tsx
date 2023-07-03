@@ -38,8 +38,8 @@ describe('UserStats', () => {
     render(<UserStats {...initialProps} />);
 
     expect(screen.getByText('Stats.level 5')).toBeInTheDocument();
-    expect(screen.getByText('Stats.experience 250')).toBeInTheDocument();
-    expect(screen.getByText('Stats.nextLvl 250')).toBeInTheDocument();
+    expect(screen.getByText('Stats.experience 250 xp')).toBeInTheDocument();
+    expect(screen.getByText('Stats.nextLvl 250 xp')).toBeInTheDocument();
     expect(screen.getByText('Stats.contributions 10')).toBeInTheDocument();
     expect(screen.getByText('Stats.numAch 1')).toBeInTheDocument();
 

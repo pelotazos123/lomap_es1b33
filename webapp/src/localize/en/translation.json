@@ -95,7 +95,7 @@
     },
     "Stats":{
         "level": "Current level: ",
-        "experience": "Xp: ",
+        "experience": "Experience: ",
         "nextLvl": "Next level: ",
         "contributions": "Total contributions: ",
         "achievement": "Achievements",

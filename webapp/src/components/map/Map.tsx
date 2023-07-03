@@ -117,7 +117,7 @@ const LoMap: React.FC<IMapProps> = (props, {showLocationDeleted}) => {
          */
         const initEventListener = () => {
             
-            listenerRef.current = google.maps.event.addListener(map!, 'click', async function (e) { 
+            listenerRef.current = google.maps.event.addListener(map!, 'click', function (e) { 
                 props.setGlobalLat(e.latLng.lat());                           
                 props.setGlobalLng(e.latLng.lng());
                 
