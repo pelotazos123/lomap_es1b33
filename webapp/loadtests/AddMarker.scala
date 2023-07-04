@@ -314,10 +314,10 @@ class AddMarker extends Simulation {
             .get(uri5 + "/public/lomap/markers.json")
             .headers(headers_14),
           http("request_15")
-            .get(uri1 + "/AuthenticationService.Authenticate?1shttps%3A%2F%2Flocalhost%2Fmap&4sAIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&8b0&callback=_xdc_._nu08xv&key=AIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&token=82299")
+            .get(uri1 + "/AuthenticationService.Authenticate?1shttps%3A%2F%2Flocalhost%2Fmap&4sAIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&8b0&callback=_xdc_._nu08xv&key=AIzaSyB59GV6key=AIzaSyB2h2OuRcUgya5N-5sadfsdhsZqiPWfsfs6sH3n_rptiQko6dRTY-oi3psvcsWngbFQ6RsGY&token=82299")
             .headers(headers_15),
           http("request_16")
-            .get(uri1 + "/GeocodeService.Search?5m2&1d0&2d0&7sES&9ses&callback=_xdc_._2bc7mp&key=AIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&token=36257")
+            .get(uri1 + "/GeocodeService.Search?5m2&1d0&2d0&7sES&9ses&callback=_xdc_._2bc7mp&key=key=AIzaSyB2h2OuRcUgya5N-5sadfsdhsZqiPWfsfs6sH3n_rptiQ&token=36257")
             .headers(headers_15),
           http("request_17")
             .get(uri3)
@@ -330,7 +330,7 @@ class AddMarker extends Simulation {
             .get(uri5 + "/public/lomap/markers.json")
             .headers(headers_19),
           http("request_20")
-            .get(uri1 + "/ViewportInfoService.GetViewportInfo?1m6&1m2&1d43.326549494191745&2d-5.985528487011194&2m2&1d43.400444907611636&2d-5.749539908670251&2u15&4ses&5e0&6sm%40652000000&7b0&8e0&12e1&13shttps%3A%2F%2Flocalhost%2Fmap&14b1&callback=_xdc_._gynqso&key=AIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&token=114520")
+            .get(uri1 + "/ViewportInfoService.GetViewportInfo?1m6&1m2&1d43.326549494191745&2d-5.985528487011194&2m2&1d43.400444907611636&2d-5.749539908670251&2u15&4ses&5e0&6sm%40652000000&7b0&8e0&12e1&13shttps%3A%2F%2Flocalhost%2Fmap&14b1&callback=_xdc_._gynqso&key=key=AIzaSyB2h2OuRcUgya5N-5sadfsdhsZqiPWfsfs6sH3n_rptiQ&token=114520")
             .headers(headers_15),
           http("request_21")
             .get("/img/marker.png")
@@ -355,10 +355,10 @@ class AddMarker extends Simulation {
             .get(uri5 + "/private/lomap/lomapUser.json")
             .headers(headers_27),
           http("request_28")
-            .get(uri1 + "/GeocodeService.Search?5m2&1d43.36795114371874&2d0&7sES&9ses&callback=_xdc_._hpw5mt&key=AIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&token=123774")
+            .get(uri1 + "/GeocodeService.Search?5m2&1d43.36795114371874&2d0&7sES&9ses&callback=_xdc_._hpw5mt&key=key=AIzaSyB2h2OuRcUgya5N-5sadfsdhsZqiPWfsfs6sH3n_rptiQ&token=123774")
             .headers(headers_15),
           http("request_29")
-            .get(uri1 + "/GeocodeService.Search?5m2&1d43.36795114371874&2d-5.857479604958349&7sES&9ses&callback=_xdc_._6dxg7x&key=AIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&token=93726")
+            .get(uri1 + "/GeocodeService.Search?5m2&1d43.36795114371874&2d-5.857479604958349&7sES&9ses&callback=_xdc_._6dxg7x&key=key=AIzaSyB2h2OuRcUgya5N-5sadfsdhsZqiPWfsfs6sH3n_rptiQ&token=93726")
             .headers(headers_15),
           http("request_30")
             .get(uri5 + "/private/lomap/lomapUser.json")
@@ -371,7 +371,7 @@ class AddMarker extends Simulation {
     .pause(5)
     .exec(
       http("request_32")
-        .get(uri1 + "/GeocodeService.Search?5m2&1d0&2d0&7sES&9ses&callback=_xdc_._2bc7mp&key=AIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&token=36257")
+        .get(uri1 + "/GeocodeService.Search?5m2&1d0&2d0&7sES&9ses&callback=_xdc_._2bc7mp&key=key=AIzaSyB2h2OuRcUgya5N-5sadfsdhsZqiPWfsfs6sH3n_rptiQ&token=36257")
         .headers(headers_15)
         .resources(
           http("request_33")
@@ -403,16 +403,16 @@ class AddMarker extends Simulation {
             .get("/img/uk-flag.png")
             .headers(headers_12),
           http("request_40")
-            .get(uri1 + "/AuthenticationService.Authenticate?1shttps%3A%2F%2Flocalhost%2Fmap&4sAIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&8b0&callback=_xdc_._nu08xv&key=AIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&token=82299")
+            .get(uri1 + "/AuthenticationService.Authenticate?1shttps%3A%2F%2Flocalhost%2Fmap&4sAIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&8b0&callback=_xdc_._nu08xv&key=AIzaSyB59GV6ko6dkey=AIzaSyB2h2OuRcUgya5N-5sadfsdhsZqiPWfsfs6sH3n_rptiQRTY-oi3psvcsWngbFQ6RsGY&token=82299")
             .headers(headers_15),
           http("request_41")
-            .post(uri6 + "?key=AIzaSyB2h2OuRcUgy5N-5hsZqiPW6sH3n_rptiQ")
+            .post(uri6 + "?key=AIzaSyB2h2OuRcUgya5N-5sadfsdhsZqiPWfsfs6sH3n_rptiQ")
             .headers(headers_41),
           http("request_42")
-            .get(uri1 + "/GeocodeService.Search?5m2&1d0&2d0&7sES&9ses&callback=_xdc_._2bc7mp&key=AIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&token=36257")
+            .get(uri1 + "/GeocodeService.Search?5m2&1d0&2d0&7sES&9ses&callback=_xdc_._2bc7mp&key=key=AIzaSyB2h2OuRcUgya5N-5sadfsdhsZqiPWfsfs6sH3n_rptiQ&token=36257")
             .headers(headers_15),
           http("request_43")
-            .get(uri1 + "/ViewportInfoService.GetViewportInfo?1m6&1m2&1d43.326549494191745&2d-5.985528487011194&2m2&1d43.400444907611636&2d-5.749539908670251&2u15&4ses&5e0&6sm%40652000000&7b0&8e0&12e1&13shttps%3A%2F%2Flocalhost%2Fmap&14b1&callback=_xdc_._gynqso&key=AIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&token=114520")
+            .get(uri1 + "/ViewportInfoService.GetViewportInfo?1m6&1m2&1d43.326549494191745&2d-5.985528487011194&2m2&1d43.400444907611636&2d-5.749539908670251&2u15&4ses&5e0&6sm%40652000000&7b0&8e0&12e1&13shttps%3A%2F%2Flocalhost%2Fmap&14b1&callback=_xdc_._gynqso&key=AIzaSyB59GV6ko6dRTY-oi3psvcsWkey=AIzaSyB2h2OuRcUgya5N-5sadfsdhsZqiPWfsfs6sH3n_rptiQngbFQ6RsGY&token=114520")
             .headers(headers_15),
           http("request_44")
             .get("/img/home.png")

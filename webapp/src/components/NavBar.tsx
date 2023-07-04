@@ -18,8 +18,6 @@ export const NavBar: React.FC<propsNav> = (props) => {
     const ES_URL = "/img/es-flag.png";
     const FR_URL = "/img/fr-flag.png";
 
-    const DEFAULT_USERPIC = "/img/no-profile-pic.png";
-
     const { session } = useSession();
     const [open, setOpen] = useState(false);
 
@@ -55,8 +53,9 @@ export const NavBar: React.FC<propsNav> = (props) => {
     }
 
     function getImg() {
+        const url = "/img/no-profile-pic.png"
         if (personData){
-            return personData.photo ? personData.photo : DEFAULT_USERPIC
+            return personData.photo ? personData.photo : url
         }
     }
     

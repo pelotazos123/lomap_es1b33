@@ -69,10 +69,11 @@ const FriendsList = (props: FriendProps) => {
   };
 
   function searchProfileImg(photo: string): string {
+    const url = "/img/no-profile-pic.png"
     if (photo) {
       return photo
     }
-    return DEFAULT_USERPIC
+    return url
   }
 
   return (

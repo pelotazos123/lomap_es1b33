@@ -364,14 +364,14 @@ class LogIn extends Simulation {
     .pause(1)
     .exec(
       http("request_28")
-        .post("/geolocation/v1/geolocate?key=AIzaSyB2h2OuRcUgy5N-5hsZqiPW6sH3n_rptiQ")
+        .post("/geolocation/v1/geolocate?key=key=AIzaSyB2h2OuRcUgya5N-5sadfsdhsZqiPWfsfs6sH3n_rptiQ")
         .headers(headers_28)
         .resources(
           http("request_29")
-            .get(uri1 + "/AuthenticationService.Authenticate?1shttps%3A%2F%2Flocalhost%2F&4sAIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&8b0&callback=_xdc_._ukdd7d&key=AIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&token=80649")
+            .get(uri1 + "/AuthenticationService.Authenticate?1shttps%3A%2F%2Flocalhost%2F&4sAIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&8b0&callback=_xdc_._ukdd7d&key=key=AIzaSyB2h2OuRcUgya5N-5sadfsdhsZqiPWfsfs6sH3n_rptiQ&token=80649")
             .headers(headers_29),
           http("request_30")
-            .get(uri1 + "/GeocodeService.Search?5m2&1d0&2d0&7sES&9ses&callback=_xdc_._2bc7mp&key=AIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&token=36257")
+            .get(uri1 + "/GeocodeService.Search?5m2&1d0&2d0&7sES&9ses&callback=_xdc_._2bc7mp&key=key=AIzaSyB2h2OuRcUgya5N-5sadfsdhsZqiPWfsfs6sH3n_rptiQ&token=36257")
             .headers(headers_29),
           http("request_31")
             .put(uri5 + "/public/lomap/markers.json")
@@ -384,7 +384,7 @@ class LogIn extends Simulation {
             .get(uri4 + "/img/marker.png")
             .headers(headers_33),
           http("request_34")
-            .get(uri1 + "/ViewportInfoService.GetViewportInfo?1m6&1m2&1d43.326549494191745&2d-5.985528487011194&2m2&1d43.400444907611636&2d-5.749539908670251&2u15&4ses&5e0&6sm%40652000000&7b0&8e0&12e1&13shttps%3A%2F%2Flocalhost%2Fmap&14b1&callback=_xdc_._gynqso&key=AIzaSyB59GV6ko6dRTY-oi3psvcsWngbFQ6RsGY&token=114520")
+            .get(uri1 + "/ViewportInfoService.GetViewportInfo?1m6&1m2&1d43.326549494191745&2d-5.985528487011194&2m2&1d43.400444907611636&2d-5.749539908670251&2u15&4ses&5e0&6sm%40652000000&7b0&8e0&12e1&13shttps%3A%2F%2Flocalhost%2Fmap&14b1&callback=_xdc_._gynqso&key=key=AIzaSyB2h2OuRcUgya5N-5sadfsdhsZqiPWfsfs6sH3n_rptiQ&token=114520")
             .headers(headers_29)
         )
     )
