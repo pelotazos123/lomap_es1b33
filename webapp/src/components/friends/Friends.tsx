@@ -89,7 +89,7 @@ const FriendsList = (props: FriendProps) => {
         <div className="friends-container">
           {friends.map((friend) => (
             <div key={friend.webId} className="friend-card">
-              <img src={searchProfileImg(friend.photo)} alt="Foto de amigo" className="friend-photo" />
+              <img src={searchProfileImg(friend.photo)} alt="Profile pic" className="friend-photo" />
               <h3>{friend.name}</h3>
               <Link href={friend.webId} sx={{textDecoration: 'hover', color: 'lightgray'}}>Solid profile</Link>
               <Button variant="outlined" sx={{color: 'lightblue', border: '2px solid', borderColor: 'red'}} onClick={() => handleRemoveFriend(friend.webId)}>{t("Friends.delete")}</Button>
