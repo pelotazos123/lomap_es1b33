@@ -55,7 +55,7 @@ We expect the future users of the application to use it as a simpler and more fr
 | _Earning a lot of money and getting a polivalent software solution_
 
 | _Developement Team_
-| _https://github.com/Arquisoft/lomap_es1b/tree/master/docs[Gihub repository]_
+| _https://github.com/pelotazos123/lomap_es1b33/tree/master/docs[Gihub repository]_
 | _Winning the SOLID tournament_
 |===
 

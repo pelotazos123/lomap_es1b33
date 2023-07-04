@@ -19,17 +19,17 @@ communication, actions and the project itself.
 |The team will consist of 1 single members with a small and limited experience in the technologies that will be used.
 
 |*Meetings*
-|In each laboratory, there will be a meeting to discuss the next week tasks. In case of any extraordinary meeting to be needed,
-it will be agreed byboth of us and recorded in the activity. Those minutes will be found here https://github.com/pelotazos123/lomap_es1b33/wiki[here].     
+|Previously, as the application was being developed by a bigger team, weekly meeting took over. Those minutes can be found here https://github.com/pelotazos123/lomap_es1b33/wiki[here].     
+Anyways, as a single member, there is no need to hold new meetings, as long as the repository is being used properly.
 
 |*Comunication*
-|Taking advantage of being working in such a small team, the comunication between the members can be done very easily. However, we have to be able to persist the important decisions regarding the project.
+|Taking advantage of being a single member, decisions don't need any discussion. Anyways it'll be neccessary to be wary of myself and don't think twice about the decisions.
 
 |*Testing*
 |There will be different scenarios that will test the proper behaviour of the application.
 
 |*Deliveries*
-|To check on the project progress there will be several deliveries through the time.
+|There will be a final delivery the 4th of July to show the whole project.
 |===
 
 ### Conventions

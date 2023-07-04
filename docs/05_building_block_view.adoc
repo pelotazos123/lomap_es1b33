@@ -53,14 +53,8 @@ Contained Building Blocks::
 |*Views* 
 |Parts of the application where the user will interact with the system.
 
-|*Sign up*
-|Allows the user to create an account. This process happens only once per user.
-
-|*Sign in*
+|*LogIn*
 |Allows the user to log in with their account, if they have already created one.
-
-|*Log out*
-|Allows the user to log out.
 
 |*Home*
 |Initial tab of the application. Displays a welcome message.
@@ -73,6 +67,9 @@ Contained Building Blocks::
 
 |*My friends*
 |Tab for managing the user's friends
+
+|*Stats*
+|Allows the user to look over its own stats and achievements
 
 |===
 

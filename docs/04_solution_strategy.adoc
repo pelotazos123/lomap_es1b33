@@ -27,6 +27,6 @@ We are using the following technologies for the development of the application:
 
 - *Language*: As said before, the prefered language for contributions to the project is set to be english as we intend that this project can reach the more people the better.
 
-- *Issues*: Although being just two people enables quick and instant comunication thorugh different tools, we have to try to reflect the actual issues of the project in the repository.
+- *Issues*: Although being just one person does not need specific communication, I have to try to reflect the actual issues of the project in the repository.
 
 - *GitHub Projects*: We intend to use the GitHub project to organize the work that is to be done, has been done or is being done. 

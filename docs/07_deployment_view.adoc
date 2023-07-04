@@ -20,5 +20,6 @@ Mapping of building blocks to infrastructure::
 |*WebApp*|The frontend of the app that will be displayed on the browser.
 |*POD Provider*|Provider of the pods to be used.
 |*MapProvider*|API that will be used to display a map. Right now we are working with Google Maps
+|*Cloudinary*|API that will store images and link them with an url that will be stored in the pods
 |===
 

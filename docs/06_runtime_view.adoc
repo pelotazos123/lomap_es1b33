@@ -18,7 +18,7 @@ User <- LoMap: The page for identified users is shown
 
 ### Seeing a personalized map
 
-When an identified user sees a personalized map. Note that in our project, by the way, the map provider is Google maps.
+When an identified user sees a personalized map. Note that in our project, the map provider is Google maps.
 
 [plantuml,"Sequence diagram 2",png]
 ----

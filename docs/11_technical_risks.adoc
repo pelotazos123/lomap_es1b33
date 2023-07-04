@@ -15,13 +15,17 @@ _(It will obviously be extended as we find new risks and generate others technic
 
 |Medium
 |Time availability of memebers of the developement team
-|Good organization and distribution of the project work along the semester
+|Good organization and distribution of the project work along the extraordinary seasson
 
 |===
 
 .Technical Debts
 |===
 |Relevance |Technical Debts | Considerations
+
+|Medium
+|Single member team
+|As a single member, it will be harder to work as completly as a team, but regarding past experiences on the previous version of this project, might work better.
 
 |Medium
 |Mandatory use of SOLID
@@ -38,10 +42,6 @@ _(It will obviously be extended as we find new risks and generate others technic
 |Low
 |The usage of TypeScript and React
 |Even though the advises of our professors may conduct us to use these technologies, we are not familiar with them
-
-|Low
-|Lack of relation between members of the team
-|Most probably it will not be a big deal, but the fact that we do not know each other may difficutl at least the beggining of the developement (Actualization: regarding the developement of the project, it actually was a high priority issue).
 
 |===
 
