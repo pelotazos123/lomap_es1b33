@@ -86,127 +86,12 @@ describe('Map component', () => {
     globalCategory: '',
     acceptedMarker: false,
     globalFilterName: '',
-    mapTypeControl: false,
-    globalDescription: '',
-    mapType: 'ROADMAP',
-    globalFilterCategories: [],
-    nextID: { current: '1' },
-    setGlobalLat: jest.fn(),
-    setGlobalLng: jest.fn(),
-    setMarkerShown: jest.fn(),
-    setDetailedIWOpen: jest.fn(),
-    setGlobalAddress: jest.fn(),
-    setAcceptedMarker: jest.fn(),
-  };
-
-  const props1: any = {
-    globalLat: 0,
-    globalLng: 0,
-    globalName: '',
-    globalMode: '',
-    globalAddress: '',
-    globalCategory: '',
-    acceptedMarker: false,
-    globalFilterName: '',
     mapTypeControl: true,
     globalDescription: '',
     mapType: 'ROADMAP',
     globalFilterCategories: [],
     nextID: { current: '' },
     tMarkers: markerList,
-    setGlobalLat: jest.fn(),
-    setGlobalLng: jest.fn(),
-    setMarkerShown: jest.fn(),
-    setDetailedIWOpen: jest.fn(),
-    setGlobalAddress: jest.fn(),
-    setAcceptedMarker: jest.fn(),
-  };
-
-  const props2: any = {
-    globalLat: 0,
-    globalLng: 0,
-    globalName: '',
-    globalMode: '',
-    globalAddress: '',
-    globalCategory: '',
-    acceptedMarker: false,
-    globalFilterName: '',
-    mapTypeControl: true,
-    globalDescription: '',
-    mapType: 'ROADMAP',
-    globalFilterCategories: [],
-    nextID: { current: '' },
-    tMarkers: markerList,
-    formOpened: true,
-    setGlobalLat: jest.fn(),
-    setGlobalLng: jest.fn(),
-    setMarkerShown: jest.fn(),
-    setDetailedIWOpen: jest.fn(),
-    setGlobalAddress: jest.fn(),
-    setAcceptedMarker: jest.fn(),
-  };
-  const props3: any = {
-    globalLat: 0,
-    globalLng: 0,
-    globalName: '',
-    globalMode: 'M',
-    globalAddress: '',
-    globalCategory: '',
-    acceptedMarker: false,
-    globalFilterName: '',
-    mapTypeControl: true,
-    globalDescription: '',
-    mapType: 'ROADMAP',
-    globalFilterCategories: [],
-    nextID: { current: '' },
-    tMarkers: markerList,
-    formOpened: true,
-    setGlobalLat: jest.fn(),
-    setGlobalLng: jest.fn(),
-    setMarkerShown: jest.fn(),
-    setDetailedIWOpen: jest.fn(),
-    setGlobalAddress: jest.fn(),
-    setAcceptedMarker: jest.fn(),
-  };
-  const props4: any = {
-    globalLat: 0,
-    globalLng: 0,
-    globalName: '',
-    globalMode: 'A',
-    globalAddress: '',
-    globalCategory: '',
-    acceptedMarker: false,
-    globalFilterName: '',
-    mapTypeControl: true,
-    globalDescription: '',
-    mapType: 'ROADMAP',
-    globalFilterCategories: [],
-    nextID: { current: '' },
-    tMarkers: markerList,
-    formOpened: true,
-    setGlobalLat: jest.fn(),
-    setGlobalLng: jest.fn(),
-    setMarkerShown: jest.fn(),
-    setDetailedIWOpen: jest.fn(),
-    setGlobalAddress: jest.fn(),
-    setAcceptedMarker: jest.fn(),
-  };
-  const props5: any = {
-    globalLat: 0,
-    globalLng: 0,
-    globalName: '',
-    globalMode: 'E',
-    globalAddress: '',
-    globalCategory: '',
-    acceptedMarker: false,
-    globalFilterName: '',
-    mapTypeControl: true,
-    globalDescription: '',
-    mapType: 'ROADMAP',
-    globalFilterCategories: [],
-    nextID: { current: '' },
-    tMarkers: markerList,
-    formOpened: true,
     setGlobalLat: jest.fn(),
     setGlobalLng: jest.fn(),
     setMarkerShown: jest.fn(),
@@ -225,31 +110,7 @@ describe('Map component', () => {
   });
 
   it('should render the component', () => {
-    const {container} = render(<LoMap {...props1}/ >);
-    const mapElement = container.getElementsByClassName('map')
-    expect(mapElement[0]).toBeInTheDocument();
-  });
-
-  it('should render the component', () => {
-    const {container} = render(<LoMap {...props2} />);
-    const mapElement = container.getElementsByClassName('map')
-    expect(mapElement[0]).toBeInTheDocument();
-  });
-
-  it('should render the component', () => {
-    const {container} = render(<LoMap {...props3} />);
-    const mapElement = container.getElementsByClassName('map')
-    expect(mapElement[0]).toBeInTheDocument();
-  });
-
-  it('should render the component', () => {
-    const {container} = render(<LoMap {...props4} />);
-    const mapElement = container.getElementsByClassName('map')
-    expect(mapElement[0]).toBeInTheDocument();
-  });
-
-  it('should render the component', () => {
-    const {container} = render(<LoMap {...props5} />);
+    const {container} = render(<LoMap {...props}/ >);
     const mapElement = container.getElementsByClassName('map')
     expect(mapElement[0]).toBeInTheDocument();
   });
